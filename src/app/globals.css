@@ -1,216 +1,190 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ---------------------------------------------------------------------------
+   Display serif: "The Seasons" (Adobe Fonts, licensed). Drop the licensed
+   files into public/fonts/the-seasons/ and they are picked up automatically.
+   Until then, "Seasons Fallback" (Fraunces, OFL) renders in its place with
+   the same weight semantics: 700 = the design's "Bold", 400 = "Regular".
+--------------------------------------------------------------------------- */
+@font-face {
+  font-family: "The Seasons";
+  src: url("/fonts/the-seasons/TheSeasons-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "The Seasons";
+  src: url("/fonts/the-seasons/TheSeasons-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Seasons Fallback";
+  src: url("/fonts/fraunces/fraunces-144-500.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Seasons Fallback";
+  src: url("/fonts/fraunces/fraunces-144-350.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
 }
 
-:root {
-  /* Primary Colors */
-  --primary-purple: #7a3f91;
-  --primary-purple-dark: #5a2d6e;
-  --primary-purple-light: #f2ecf4;
-  --dark-text: #2b0d3e;
-  --dark-text-light: #4a2d5e;
-  --heading-dark: #240632;
-  --text-muted: #8e7a9b;
+/* Design tokens — names follow the Figma variable collection. */
+@theme {
+  --color-ink: #2b0d3e; /* dark-text/base */
+  --color-ink-90: #402551; /* dark-text/light-90 */
+  --color-ink-70: #7a6c85;
+  --color-ink-50: #95869e; /* dark-text/light-50 */
+  --color-ink-deep: #270c38; /* dark-text/dark-10 */
+  --color-ink-night: #240632;
+  --color-purple: #7a3f91; /* primary-purple/base */
+  --color-purple-deep: #4d1b54;
+  --color-purple-70: #9b6fac;
+  --color-purple-50: #bc9fc8; /* primary-purple/light-50 */
+  --color-purple-30: #dacae0;
+  --color-purple-20: #e8e1ee;
+  --color-purple-10: #f2ecf4; /* primary-purple/light-10 */
+  --color-blush: #f4edf8; /* body-background */
+  --color-blush-light: #f8f4fb;
+  --color-gold: #c59b27; /* gold-tint */
+  --color-gold-deep: #b1870e;
+  --color-gold-light: #e5c158;
+  --color-gold-cream: #fff8e8;
+  --color-cream: #fdece7;
+  --color-charcoal: #1c1b1a;
+  --color-slate: #414853; /* Gray/900 */
+  --color-success: #079455; /* status-success/base */
+  --color-success-deep: #1e8a4c;
+  --color-snow: #fefdfe;
 
-  /* Gold / Accent */
-  --gold: #c59b27;
-  --gold-dark: #9e7616;
-  --gold-light: #e5c158;
+  --font-seasons: "The Seasons", "Seasons Fallback", "Times New Roman", serif;
+  --font-manrope: var(--font-manrope-src), "Manrope", sans-serif;
+  --font-instrument: var(--font-instrument-src), "Instrument Sans", sans-serif;
+  --font-inter: var(--font-inter-src), "Inter", sans-serif;
+  --font-jost: var(--font-jost-src), "Jost", sans-serif;
+  --font-playfair: var(--font-playfair-src), "Playfair Display", serif;
+  --font-bricolage: var(--font-bricolage-src), "Bricolage Grotesque", sans-serif;
+  --font-cormorant: var(--font-cormorant-src), "Cormorant Garamond", serif;
 
-  /* Utility */
-  --body-bg: #f4edf8;
-  --card-border: #e8e1ee;
-  --success-green: #079455;
-  --white: #ffffff;
-
-  /* Font families (assigned in layout.tsx via CSS vars) */
-  --font-display: var(--font-cormorant), "Cormorant Garamond", serif;
-  --font-body: var(--font-manrope), "Manrope", sans-serif;
-  --font-jost: var(--font-jost), "Jost", sans-serif;
-  --font-small: var(--font-inter), "Inter", sans-serif;
-  --font-label: var(--font-bricolage), "Bricolage Grotesque", sans-serif;
-  --font-ticker: var(--font-instrument), "Instrument Sans", sans-serif;
-
-  --background: #ffffff;
-  --foreground: #171717;
+  --shadow-dropdown: 0 10px 12px 0 rgb(0 0 0 / 0.1);
+  --shadow-footer: 0 20px 50px -20px rgb(117 60 134 / 0.55);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-/* ========== Global Styles ========== */
+/* ========== Base ========== */
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background: var(--body-bg);
-  font-family: var(--font-body);
-  color: var(--dark-text);
+  background: #ffffff;
+  color: var(--color-ink);
+  font-family: var(--font-manrope);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ========== Layout Utilities ========== */
-.container-main {
-  max-width: 1340px;
-  margin: 0 auto;
-  padding-left: 16px;
-  padding-right: 16px;
+::selection {
+  background: var(--color-purple);
+  color: white;
 }
 
-@media (min-width: 640px) {
-  .container-main {
-    padding-left: 24px;
-    padding-right: 24px;
+/* Page frame: the design is a 1440px canvas with 50px side gutters. */
+@utility page-x {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: 16px;
+  @media (width >= 640px) {
+    padding-inline: 24px;
+  }
+  @media (width >= 1024px) {
+    padding-inline: 50px;
   }
 }
 
-@media (min-width: 1024px) {
-  .container-main {
-    padding-left: 50px;
-    padding-right: 50px;
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 
-.section-padding {
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
-
-@media (min-width: 640px) {
-  .section-padding {
-    padding-top: 56px;
-    padding-bottom: 56px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .section-padding {
-    padding-top: 72px;
-    padding-bottom: 72px;
-  }
-}
-
-/* ========== Scroll Animations ========== */
+/* ========== Scroll reveal (useScrollAnimation) ========== */
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.7s ease-out, transform 0.7s ease-out;
 }
-
 .animate-on-scroll.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
-.animate-left {
-  opacity: 0;
-  transform: translateX(-40px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-}
-
-.animate-left.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.animate-right {
-  opacity: 0;
-  transform: translateX(40px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-}
-
-.animate-right.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.animate-scale {
-  opacity: 0;
-  transform: scale(0.92);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-}
-
-.animate-scale.visible {
-  opacity: 1;
-  transform: scale(1);
-}
-
-/* Delay classes */
-.delay-1 {
-  transition-delay: 0.1s;
-}
-.delay-2 {
-  transition-delay: 0.2s;
-}
-.delay-3 {
-  transition-delay: 0.3s;
-}
-.delay-4 {
-  transition-delay: 0.4s;
-}
-
-/* ========== Hero Slider ========== */
-.hero-slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
-
-.hero-slide.active {
-  opacity: 1;
-}
-
-/* ========== Ticker Animation ========== */
+/* ========== Gold ticker ========== */
 @keyframes ticker-scroll {
-  0% {
+  from {
     transform: translateX(0);
   }
-  100% {
+  to {
     transform: translateX(-50%);
   }
 }
-
 .ticker-track {
   animation: ticker-scroll 30s linear infinite;
 }
-
 .ticker-track:hover {
   animation-play-state: paused;
 }
 
-/* ========== Button Press Effect ========== */
-.btn-press {
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+/* ========== Overlays ========== */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+}
+.overlay-in {
+  animation: fade-in 0.2s ease-out;
+}
+.dialog-in {
+  animation: pop-in 0.25s ease-out;
 }
 
-.btn-press:active {
-  transform: scale(0.96);
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
-/* ========== Nav Scroll (hide scrollbar) ========== */
-.nav-scroll {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+/* ========== Dual price slider (PLP) ========== */
+.range-thumb::-webkit-slider-thumb {
+  pointer-events: auto;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  background: var(--color-purple);
+  border: 1px solid var(--color-charcoal);
+  cursor: pointer;
 }
-
-.nav-scroll::-webkit-scrollbar {
-  display: none;
-}
-
-/* ========== Selection ========== */
-::selection {
-  background: var(--primary-purple);
-  color: white;
+.range-thumb::-moz-range-thumb {
+  pointer-events: auto;
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background: var(--color-purple);
+  border: 1px solid var(--color-charcoal);
+  cursor: pointer;
 }
