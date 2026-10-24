@@ -3,7 +3,7 @@ import Icon from "@/components/ui/Icon";
 
 /** Lilac rounded panel used by most landing sections (1415px wide, 13.5px inset on a 1442 canvas). */
 export function Panel({ children, className = "", as: Tag = "section" }: { children: React.ReactNode; className?: string; as?: "section" | "div" }) {
-  return <Tag className={`mx-auto w-[calc(100%-27px)] max-w-[1415px] rounded-[38px] bg-purple-10 ${className}`}>{children}</Tag>;
+  return <Tag className={`mx-auto w-[calc(100%-16px)] max-w-[1415px] rounded-[20px] bg-purple-10 sm:w-[calc(100%-27px)] sm:rounded-[38px] ${className}`}>{children}</Tag>;
 }
 
 interface SectionHeadingProps {
@@ -19,8 +19,8 @@ export function SectionHeading({ title, subtitle, align = "left", sparkle, class
   return (
     <div className={`flex flex-col gap-2.5 ${align === "center" ? "items-center text-center" : "items-start text-left"} ${className}`}>
       {sparkle && <Icon src="/icons/home/sparkle-purple.svg" size={38.4} />}
-      <h2 className="font-seasons text-[32px] leading-none font-bold tracking-[-0.8px] text-purple sm:text-[40px]">{title}</h2>
-      {subtitle && <p className="max-w-[608px] text-[13.1px] leading-[19.6px] font-medium tracking-[0.24px] text-[#232323]">{subtitle}</p>}
+      <h2 className="font-seasons text-[26px] leading-none font-bold tracking-[-0.8px] text-purple sm:text-[32px] lg:text-[40px]">{title}</h2>
+      {subtitle && <p className="max-w-[608px] text-[12px] leading-[18px] font-medium tracking-[0.24px] text-[#232323] sm:text-[13.1px] sm:leading-[19.6px]">{subtitle}</p>}
     </div>
   );
 }

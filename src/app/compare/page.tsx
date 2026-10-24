@@ -34,7 +34,7 @@ export default function ComparePage() {
           <span className="font-inter">/</span>
           <span className="text-ink font-medium">Compare Products</span>
         </nav>
-        <h1 className="mt-10 font-seasons text-[44px] leading-[57px] font-bold tracking-[-1.6px] text-purple">
+        <h1 className="mt-10 font-seasons text-[32px] leading-[1.1] font-bold tracking-[-1.6px] text-purple sm:text-[44px] sm:leading-[57px]">
           Compare Products
         </h1>
         <p className="mt-2 text-[15px] text-ink-50">

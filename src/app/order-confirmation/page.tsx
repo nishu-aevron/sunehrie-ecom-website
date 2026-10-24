@@ -15,7 +15,7 @@ const orderItems = [
 export default function OrderConfirmationPage() {
   return (
     <main className="bg-white">
-      <section className="page-x py-16 lg:px-[72px]">
+      <section className="page-x py-10 sm:py-16 lg:px-[72px]">
         <div className="mx-auto max-w-[720px] text-center">
           {/* Success icon */}
           <div className="mx-auto mb-6 flex size-20 items-center justify-center rounded-full bg-success/10">
@@ -25,7 +25,7 @@ export default function OrderConfirmationPage() {
             </svg>
           </div>
 
-          <h1 className="font-seasons text-[44px] leading-[57px] font-bold tracking-[-1.6px] text-purple">
+          <h1 className="font-seasons text-[32px] leading-[1.1] font-bold tracking-[-1.6px] text-purple sm:text-[44px] sm:leading-[57px]">
             Order Confirmed!
           </h1>
           <p className="mt-3 text-[15px] leading-[22px] text-ink-50">
@@ -35,7 +35,7 @@ export default function OrderConfirmationPage() {
 
         {/* Order details card */}
         <div className="mx-auto mt-12 max-w-[720px] rounded-2xl border border-purple-20 bg-white">
-          <div className="border-b border-purple-20 px-8 py-6">
+          <div className="border-b border-purple-20 px-5 py-5 sm:px-8 sm:py-6">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div>
                 <p className="text-[12px] font-medium tracking-[1px] text-ink-50 uppercase">Order Number</p>
@@ -49,7 +49,7 @@ export default function OrderConfirmationPage() {
           </div>
 
           {/* Order items */}
-          <div className="px-8 py-6">
+          <div className="px-5 py-5 sm:px-8 sm:py-6">
             <h2 className="text-[14px] font-bold text-ink">Order Items</h2>
             <div className="mt-4 divide-y divide-purple-10">
               {orderItems.map((item) => (
@@ -72,7 +72,7 @@ export default function OrderConfirmationPage() {
           </div>
 
           {/* Summary */}
-          <div className="border-t border-purple-20 px-8 py-6">
+          <div className="border-t border-purple-20 px-5 py-5 sm:px-8 sm:py-6">
             <dl className="space-y-2 text-[14px]">
               <div className="flex justify-between">
                 <dt className="text-ink-50">Subtotal</dt>
@@ -94,7 +94,7 @@ export default function OrderConfirmationPage() {
           </div>
 
           {/* Shipping & Payment details */}
-          <div className="border-t border-purple-20 px-8 py-6">
+          <div className="border-t border-purple-20 px-5 py-5 sm:px-8 sm:py-6">
             <div className="grid gap-6 sm:grid-cols-2">
               <div>
                 <p className="text-[12px] font-medium tracking-[1px] text-ink-50 uppercase">Payment Method</p>
@@ -111,8 +111,8 @@ export default function OrderConfirmationPage() {
           </div>
 
           {/* Estimated delivery */}
-          <div className="border-t border-purple-20 px-8 py-6">
-            <div className="flex items-center gap-3 rounded-xl bg-purple-10 px-5 py-4">
+          <div className="border-t border-purple-20 px-5 py-5 sm:px-8 sm:py-6">
+            <div className="flex items-center gap-3 rounded-xl bg-purple-10 px-4 py-3 sm:px-5 sm:py-4">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="shrink-0 text-purple">
                 <rect x="1" y="3" width="15" height="13" rx="2" />
                 <path d="M16 8h4l3 3v5h-7V8z" />

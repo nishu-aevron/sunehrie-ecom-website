@@ -11,7 +11,7 @@ export default function LoginModal() {
     <Dialog
       label="Welcome to Sunehriè"
       onClose={closeModal}
-      className="isolate flex w-[1242px] max-w-full flex-col items-center gap-[30px] rounded-[40px] px-6 py-14 sm:p-20"
+      className="isolate flex w-[1242px] max-w-full flex-col items-center gap-[20px] rounded-[20px] px-5 py-10 sm:gap-[30px] sm:rounded-[40px] sm:px-6 sm:py-14 md:p-20"
     >
       <div
         aria-hidden

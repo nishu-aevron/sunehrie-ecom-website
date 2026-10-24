@@ -61,7 +61,7 @@ export default function SpecialOffersPage() {
   return (
     <main className="bg-white">
       {/* Hero */}
-      <section className="page-x relative pt-[30px] pb-[56px]">
+      <section className="page-x relative pt-[30px] pb-[40px] sm:pb-[56px]">
         <svg className="pointer-events-none absolute top-[-6px] right-0 h-[312px] w-[134px] text-purple-10" viewBox="0 0 134 312" fill="currentColor" aria-hidden>
           <ellipse cx="134" cy="156" rx="134" ry="156" />
         </svg>
@@ -73,14 +73,14 @@ export default function SpecialOffersPage() {
           <span className="text-ink">The Golden Sparrow Vault</span>
         </nav>
 
-        <div className="relative mt-[44px] flex flex-col gap-12 lg:flex-row lg:justify-between">
+        <div className="relative mt-[28px] flex flex-col gap-8 sm:mt-[44px] sm:gap-12 lg:flex-row lg:justify-between">
           <div className="max-w-[620px]">
             <div className="flex items-center gap-2">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/icons/home/trust-shield.svg" alt="" width={18} height={18} className="block size-[18px]" />
               <span className="text-[13px] font-semibold text-purple">Special Offers</span>
             </div>
-            <h1 className="mt-[24px] font-seasons text-[44px] leading-[1.1] font-bold tracking-[-1.6px] text-ink sm:text-[52px]">
+            <h1 className="mt-[24px] font-seasons text-[32px] leading-[1.1] font-bold tracking-[-1.6px] text-ink sm:text-[44px] lg:text-[52px]">
               The Golden Sparrow Vault
             </h1>
             <p className="mt-[24px] text-[15px] leading-[24px] tracking-[0.24px] text-ink-70">
@@ -119,18 +119,18 @@ export default function SpecialOffersPage() {
       </section>
 
       {/* How the program works */}
-      <section id="how-it-works" className="bg-purple-10/50 py-[56px]">
+      <section id="how-it-works" className="bg-purple-10/50 py-[40px] sm:py-[56px]">
         <div className="page-x">
           <p className="text-[11px] font-semibold tracking-[2px] uppercase text-purple">How the program works</p>
-          <h2 className="mt-[12px] font-seasons text-[32px] font-bold tracking-[-0.8px] text-ink sm:text-[36px]">
+          <h2 className="mt-[12px] font-seasons text-[24px] font-bold tracking-[-0.8px] text-ink sm:text-[32px] lg:text-[36px]">
             A clear journey from purchase to maturity
           </h2>
           <p className="mt-[12px] text-[14px] leading-[24px] text-ink-70">
             The Golden Sparrow Vault is a conditional program tied to brand milestones. Progress is driven by aggregate sales, community growth and internal transaction sequences — not by personal referrals.
           </p>
-          <div className="mt-[36px] grid gap-6 sm:grid-cols-3">
+          <div className="mt-[24px] grid gap-4 sm:mt-[36px] sm:grid-cols-3 sm:gap-6">
             {steps.map((s) => (
-              <div key={s.num} className="rounded-2xl border border-purple-20 bg-white p-6">
+              <div key={s.num} className="rounded-2xl border border-purple-20 bg-white p-5 sm:p-6">
                 <div className="flex size-[40px] items-center justify-center rounded-full bg-purple-10">
                   <span className="text-[14px] font-bold text-purple">{s.num}</span>
                 </div>
@@ -143,14 +143,14 @@ export default function SpecialOffersPage() {
       </section>
 
       {/* Reward & Tax */}
-      <section className="py-[56px]">
+      <section className="py-[40px] sm:py-[56px]">
         <div className="page-x">
           <p className="text-[11px] font-semibold tracking-[2px] uppercase text-purple">Reward & Tax</p>
-          <h2 className="mt-[12px] font-seasons text-[32px] font-bold tracking-[-0.8px] text-ink sm:text-[36px]">
+          <h2 className="mt-[12px] font-seasons text-[24px] font-bold tracking-[-0.8px] text-ink sm:text-[32px] lg:text-[36px]">
             What happens when the Vault matures
           </h2>
-          <div className="mt-[32px] grid gap-8 sm:grid-cols-2">
-            <div className="rounded-2xl border border-purple-20 bg-white p-6">
+          <div className="mt-[24px] grid gap-5 sm:mt-[32px] sm:grid-cols-2 sm:gap-8">
+            <div className="rounded-2xl border border-purple-20 bg-white p-5 sm:p-6">
               <h3 className="text-[18px] font-bold text-ink">Reward issuance</h3>
               <div className="mt-[20px] flex flex-col gap-[16px]">
                 {rewardItems.map((item) => (
@@ -161,7 +161,7 @@ export default function SpecialOffersPage() {
                 ))}
               </div>
             </div>
-            <div className="rounded-2xl border border-purple-20 bg-white p-6">
+            <div className="rounded-2xl border border-purple-20 bg-white p-5 sm:p-6">
               <h3 className="text-[18px] font-bold text-ink">Tax & redemption</h3>
               <div className="mt-[20px] flex flex-col gap-[16px]">
                 {taxItems.map((item) => (
@@ -177,14 +177,14 @@ export default function SpecialOffersPage() {
       </section>
 
       {/* Eligibility & conditions */}
-      <section className="bg-purple-10/50 py-[56px]">
+      <section className="bg-purple-10/50 py-[40px] sm:py-[56px]">
         <div className="page-x">
           <p className="text-[11px] font-semibold tracking-[2px] uppercase text-purple">Eligibility & Conditions</p>
-          <h2 className="mt-[12px] font-seasons text-[32px] font-bold tracking-[-0.8px] text-ink sm:text-[36px]">
+          <h2 className="mt-[12px] font-seasons text-[24px] font-bold tracking-[-0.8px] text-ink sm:text-[32px] lg:text-[36px]">
             Clear rules for participation and redemption
           </h2>
-          <div className="mt-[32px] grid gap-8 sm:grid-cols-2">
-            <div className="rounded-2xl border border-purple-20 bg-white p-6">
+          <div className="mt-[24px] grid gap-5 sm:mt-[32px] sm:grid-cols-2 sm:gap-8">
+            <div className="rounded-2xl border border-purple-20 bg-white p-5 sm:p-6">
               <h3 className="text-[18px] font-bold text-ink">Eligibility</h3>
               <div className="mt-[20px] flex flex-col gap-[16px]">
                 {eligibility.map((item) => (
@@ -195,7 +195,7 @@ export default function SpecialOffersPage() {
                 ))}
               </div>
             </div>
-            <div className="rounded-2xl border border-purple-20 bg-white p-6">
+            <div className="rounded-2xl border border-purple-20 bg-white p-5 sm:p-6">
               <h3 className="text-[18px] font-bold text-ink">Key conditions</h3>
               <div className="mt-[20px] flex flex-col gap-[16px]">
                 {conditions.map((item) => (
@@ -211,20 +211,20 @@ export default function SpecialOffersPage() {
       </section>
 
       {/* Terms & FAQ */}
-      <section className="py-[56px]">
+      <section className="py-[40px] sm:py-[56px]">
         <div className="page-x">
           <p className="text-[11px] font-semibold tracking-[2px] uppercase text-purple">Terms & FAQ</p>
-          <h2 className="mt-[12px] font-seasons text-[32px] font-bold tracking-[-0.8px] text-ink sm:text-[36px]">
+          <h2 className="mt-[12px] font-seasons text-[24px] font-bold tracking-[-0.8px] text-ink sm:text-[32px] lg:text-[36px]">
             Important program conditions
           </h2>
-          <div className="mt-[32px] grid gap-8 sm:grid-cols-2">
-            <div className="rounded-2xl border border-purple-20 bg-white p-6">
+          <div className="mt-[24px] grid gap-5 sm:mt-[32px] sm:grid-cols-2 sm:gap-8">
+            <div className="rounded-2xl border border-purple-20 bg-white p-5 sm:p-6">
               <h3 className="text-[18px] font-bold text-ink">Program structure</h3>
               <p className="mt-[16px] text-[14px] leading-[24px] text-ink-70">
                 The Golden Sparrow Vault is a conditional loyalty discount program, not a prize scheme, lottery, or money circulation scheme. Participation is a complimentary benefit for customers who purchase goods at fair market value.
               </p>
             </div>
-            <div className="rounded-2xl border border-purple-20 bg-white p-6">
+            <div className="rounded-2xl border border-purple-20 bg-white p-5 sm:p-6">
               <h3 className="text-[18px] font-bold text-ink">Discretion & data</h3>
               <p className="mt-[16px] text-[14px] leading-[24px] text-ink-70">
                 Customer data is used for tracking Vault progress and providing program updates. The website states that customer transaction data is not sold or shared with third parties.
@@ -232,7 +232,7 @@ export default function SpecialOffersPage() {
             </div>
           </div>
 
-          <h2 className="mt-[40px] font-seasons text-[32px] font-bold tracking-[-0.8px] text-ink">FAQs</h2>
+          <h2 className="mt-[32px] font-seasons text-[26px] font-bold tracking-[-0.8px] text-ink sm:mt-[40px] sm:text-[32px]">FAQs</h2>
           <div className="mt-[24px] flex flex-col">
             {programFaqs.map((faq) => (
               <div key={faq.q} className="flex flex-col gap-2 border-b border-purple-20 py-[20px] sm:flex-row sm:gap-[36px]">
@@ -245,21 +245,21 @@ export default function SpecialOffersPage() {
       </section>
 
       {/* Contact & support */}
-      <section className="bg-purple-10/50 py-[56px]">
+      <section className="bg-purple-10/50 py-[40px] sm:py-[56px]">
         <div className="page-x">
           <p className="text-[11px] font-semibold tracking-[2px] uppercase text-purple">Contact & Support</p>
-          <h2 className="mt-[12px] font-seasons text-[32px] font-bold tracking-[-0.8px] text-ink sm:text-[36px]">
+          <h2 className="mt-[12px] font-seasons text-[24px] font-bold tracking-[-0.8px] text-ink sm:text-[32px] lg:text-[36px]">
             Questions about the Golden Sparrow Vault?
           </h2>
-          <div className="mt-[32px] grid gap-8 sm:grid-cols-2">
-            <div className="rounded-2xl border border-purple-20 bg-white p-6">
+          <div className="mt-[24px] grid gap-5 sm:mt-[32px] sm:grid-cols-2 sm:gap-8">
+            <div className="rounded-2xl border border-purple-20 bg-white p-5 sm:p-6">
               <h3 className="text-[18px] font-bold text-ink">Godhra branch</h3>
               <p className="mt-[16px] text-[14px] leading-[24px] text-ink-70">
                 2nd floor, Besides Shreenathji Jewellers Godhrawala, Adumbar kuva, Soniwad, Godhra, Gujarat 389001.
               </p>
               <p className="mt-[12px] text-[14px] font-medium text-ink">+91 93273 31963</p>
             </div>
-            <div className="rounded-2xl border border-purple-20 bg-white p-6">
+            <div className="rounded-2xl border border-purple-20 bg-white p-5 sm:p-6">
               <h3 className="text-[18px] font-bold text-ink">Lunawada branch</h3>
               <p className="mt-[16px] text-[14px] leading-[24px] text-ink-70">
                 Opp Shreenathji Jewellers Godhrawala Lunawada, E-Block, Nandan Arched, Modasa Road, Lunawada, Mahisagar 389230.
@@ -268,10 +268,10 @@ export default function SpecialOffersPage() {
             </div>
           </div>
 
-          <div className="mt-[32px] rounded-2xl border border-purple-20 bg-white p-6">
+          <div className="mt-[24px] rounded-2xl border border-purple-20 bg-white p-5 sm:mt-[32px] sm:p-6">
             <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
               <div>
-                <h3 className="font-seasons text-[24px] font-bold tracking-[-0.4px] text-ink">Need help understanding the program?</h3>
+                <h3 className="font-seasons text-[22px] font-bold tracking-[-0.4px] text-ink sm:text-[24px]">Need help understanding the program?</h3>
                 <p className="mt-[8px] text-[14px] leading-[24px] text-ink-70">
                   For current eligibility, maturity status and redemption details, speak with the Sunehriè jewellery team.
                 </p>

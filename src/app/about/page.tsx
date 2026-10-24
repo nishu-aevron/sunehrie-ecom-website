@@ -49,17 +49,17 @@ export default function AboutPage() {
   return (
     <main className="bg-white">
       {/* Heritage introduction */}
-      <section className="page-x pt-[30px] pb-[72px]">
+      <section className="page-x pt-[30px] pb-10 sm:pb-[72px]">
         <nav aria-label="Breadcrumb" className="flex items-center gap-1 text-ink-50 text-[12px] leading-5">
           <Link href="/" className="hover:text-purple hover:underline">Home</Link>
           <span className="font-inter text-[14px]">/</span>
           <span className="text-ink">About Us</span>
         </nav>
 
-        <div className="mt-[46px] flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between">
+        <div className="mt-8 flex flex-col gap-8 sm:mt-[46px] sm:gap-12 lg:flex-row lg:items-center lg:justify-between">
           <div className="max-w-[644px]">
             <p className="text-[11px] font-semibold tracking-[2px] uppercase text-purple">Two Generations of Trust</p>
-            <h1 className="mt-[26px] font-seasons text-[44px] leading-[1.1] font-bold tracking-[-1.6px] text-ink sm:text-[56px]">
+            <h1 className="mt-[26px] font-seasons text-[32px] leading-[1.1] font-bold tracking-[-1.6px] text-ink sm:text-[44px] lg:text-[56px]">
               More Than Jewellery,{" "}
               <span className="text-purple">a Legacy of Love</span>
             </h1>
@@ -71,21 +71,21 @@ export default function AboutPage() {
             </Link>
           </div>
 
-          <div className="relative h-[380px] w-full max-w-[580px] overflow-hidden rounded-3xl bg-purple-10 sm:h-[490px]">
+          <div className="relative h-[260px] w-full max-w-[580px] overflow-hidden rounded-2xl bg-purple-10 sm:h-[380px] sm:rounded-3xl lg:h-[490px]">
             <Image src="/img/home/hero-portrait.png" alt="Sunehriè brand portrait" fill sizes="580px" className="object-cover" />
           </div>
         </div>
       </section>
 
       {/* Our Story */}
-      <section id="our-story" className="bg-purple-10/50 py-[72px]">
-        <div className="page-x flex flex-col gap-12 lg:flex-row lg:items-center">
-          <div className="relative h-[350px] w-full shrink-0 overflow-hidden rounded-3xl bg-purple-20 sm:h-[450px] lg:w-[500px]">
+      <section id="our-story" className="bg-purple-10/50 py-10 sm:py-[56px] lg:py-[72px]">
+        <div className="page-x flex flex-col gap-8 sm:gap-12 lg:flex-row lg:items-center">
+          <div className="relative h-[240px] w-full shrink-0 overflow-hidden rounded-2xl bg-purple-20 sm:h-[350px] sm:rounded-3xl lg:h-[450px] lg:w-[500px]">
             <Image src="/img/home/showroom-interior.png" alt="Jewellery craftsmanship" fill sizes="500px" className="object-cover" />
           </div>
           <div className="max-w-[620px]">
             <p className="text-[11px] font-semibold tracking-[2px] uppercase text-purple">Our Story</p>
-            <h2 className="mt-[24px] font-seasons text-[36px] leading-[1.15] font-bold tracking-[-0.8px] text-ink sm:text-[44px]">
+            <h2 className="mt-[24px] font-seasons text-[26px] leading-[1.15] font-bold tracking-[-0.8px] text-ink sm:text-[36px] lg:text-[44px]">
               A Family Tradition, Carried Forward
             </h2>
             <p className="mt-[24px] text-[15px] leading-[24px] tracking-[0.24px] text-ink-70">
@@ -94,7 +94,7 @@ export default function AboutPage() {
             <p className="mt-[24px] text-[15px] leading-[24px] tracking-[0.24px] text-ink-70">
               Starting with a flagship store in Godhra and expanding to Lunawada, they built Sunehriè on three promises: every piece hallmarked, every diamond certified, and every price fully transparent. Today, that same commitment drives everything from our 9KT daily wear to our 18KT bridal collections.
             </p>
-            <p className="mt-[24px] font-seasons text-[22px] font-bold tracking-[-0.4px] text-purple">
+            <p className="mt-[24px] font-seasons text-[18px] font-bold tracking-[-0.4px] text-purple sm:text-[22px]">
               — The Shah Family, Sunehriè
             </p>
           </div>
@@ -102,18 +102,18 @@ export default function AboutPage() {
       </section>
 
       {/* Brand Commitments */}
-      <section className="py-[64px]">
+      <section className="py-10 sm:py-[48px] lg:py-[64px]">
         <div className="page-x">
           <p className="text-[11px] font-semibold tracking-[2px] uppercase text-purple">What We Stand For</p>
-          <h2 className="mt-[24px] font-seasons text-[36px] leading-[1.15] font-bold tracking-[-0.8px] text-ink sm:text-[40px]">
+          <h2 className="mt-[24px] font-seasons text-[26px] leading-[1.15] font-bold tracking-[-0.8px] text-ink sm:text-[36px] lg:text-[40px]">
             Commitments That Define Every Piece
           </h2>
-          <div className="mt-[36px] grid gap-8 sm:grid-cols-3">
+          <div className="mt-6 grid gap-5 sm:mt-[36px] sm:grid-cols-3 sm:gap-8">
             {commitments.map((c) => (
               <div key={c.title} className="flex flex-col gap-[18px]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={c.icon} alt="" width={32} height={32} className="block size-8" />
-                <h3 className="font-seasons text-[22px] font-bold tracking-[-0.4px] text-ink">{c.title}</h3>
+                <h3 className="font-seasons text-[18px] font-bold tracking-[-0.4px] text-ink sm:text-[22px]">{c.title}</h3>
                 <p className="text-[14px] leading-[22px] tracking-[0.24px] text-ink-70">{c.desc}</p>
               </div>
             ))}
@@ -122,19 +122,19 @@ export default function AboutPage() {
       </section>
 
       {/* Vision & Values */}
-      <section className="bg-purple-10/50 py-[72px]">
+      <section className="bg-purple-10/50 py-10 sm:py-[56px] lg:py-[72px]">
         <div className="page-x">
           <p className="text-[11px] font-semibold tracking-[2px] uppercase text-purple">Vision</p>
-          <h2 className="mt-[16px] font-seasons text-[36px] leading-[1.15] font-bold tracking-[-0.8px] text-ink sm:text-[40px]">
+          <h2 className="mt-[16px] font-seasons text-[26px] leading-[1.15] font-bold tracking-[-0.8px] text-ink sm:text-[36px] lg:text-[40px]">
             Making Fine Jewellery Accessible to Every Indian Family
           </h2>
           <p className="mt-[16px] max-w-[960px] text-[15px] leading-[26px] tracking-[0.24px] text-ink-70">
             We envision a future where choosing real gold and natural diamonds is no longer a privilege. Through honest pricing, starting at 9KT, and certified craftsmanship, Sunehriè is rewriting the rules of fine jewellery — one family at a time.
           </p>
-          <div className="mt-[48px] grid gap-8 sm:grid-cols-3">
+          <div className="mt-6 grid gap-4 sm:mt-[48px] sm:grid-cols-3 sm:gap-8">
             {values.map((v) => (
-              <div key={v.title} className="rounded-2xl border border-purple-20 bg-white p-8">
-                <h3 className="font-seasons text-[22px] font-bold tracking-[-0.4px] text-ink">{v.title}</h3>
+              <div key={v.title} className="rounded-2xl border border-purple-20 bg-white p-6 sm:p-8">
+                <h3 className="font-seasons text-[18px] font-bold tracking-[-0.4px] text-ink sm:text-[22px]">{v.title}</h3>
                 <p className="mt-[16px] text-[14px] leading-[22px] tracking-[0.24px] text-ink-70">{v.desc}</p>
               </div>
             ))}
@@ -143,11 +143,11 @@ export default function AboutPage() {
       </section>
 
       {/* Sunehriè Vault */}
-      <section className="py-[72px]">
-        <div className="page-x flex flex-col gap-12 lg:flex-row lg:justify-between">
+      <section className="py-10 sm:py-[56px] lg:py-[72px]">
+        <div className="page-x flex flex-col gap-8 sm:gap-12 lg:flex-row lg:justify-between">
           <div className="max-w-[796px]">
             <p className="text-[11px] font-semibold tracking-[2px] uppercase text-purple">The Golden Sparrow</p>
-            <h2 className="mt-[28px] font-seasons text-[36px] leading-[1.15] font-bold tracking-[-0.8px] text-ink sm:text-[40px]">
+            <h2 className="mt-[28px] font-seasons text-[26px] leading-[1.15] font-bold tracking-[-0.8px] text-ink sm:text-[36px] lg:text-[40px]">
               Introducing the Sunehriè Vault
             </h2>
             <p className="mt-[28px] max-w-[796px] text-[15px] leading-[24px] tracking-[0.24px] text-ink-70">
@@ -165,7 +165,7 @@ export default function AboutPage() {
             <div className="rounded-2xl border border-purple-20 bg-white p-8">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/icons/home/trust-shield.svg" alt="" width={36} height={36} className="block size-9" />
-              <h3 className="mt-[20px] font-seasons text-[22px] font-bold tracking-[-0.4px] text-ink">The Golden Sparrow Vault</h3>
+              <h3 className="mt-[20px] font-seasons text-[18px] font-bold tracking-[-0.4px] text-ink sm:text-[22px]">The Golden Sparrow Vault</h3>
               <p className="mt-[16px] text-[14px] leading-[22px] tracking-[0.24px] text-ink-70">
                 A conditional deferred loyalty program that rewards your purchase journey with up to ₹50,000 on maturity.
               </p>
@@ -187,19 +187,19 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership */}
-      <section className="bg-purple-10/50 py-[72px]">
+      <section className="bg-purple-10/50 py-10 sm:py-[56px] lg:py-[72px]">
         <div className="page-x">
           <p className="text-[11px] font-semibold tracking-[2px] uppercase text-purple">Meet the Team</p>
-          <h2 className="mt-[16px] font-seasons text-[36px] leading-[1.15] font-bold tracking-[-0.8px] text-ink sm:text-[40px]">
+          <h2 className="mt-[16px] font-seasons text-[26px] leading-[1.15] font-bold tracking-[-0.8px] text-ink sm:text-[36px] lg:text-[40px]">
             The People Behind Sunehriè
           </h2>
           <p className="mt-[16px] text-[15px] leading-[24px] tracking-[0.24px] text-ink-70">
             A family-led team with two generations of jewellery expertise, united by a shared vision.
           </p>
 
-          <div className="mt-[48px] grid grid-cols-2 gap-6 sm:grid-cols-4">
+          <div className="mt-6 grid grid-cols-2 gap-4 sm:mt-[48px] sm:gap-6 lg:grid-cols-4">
             {founders.map((l) => (
-              <div key={l.name} className="rounded-2xl border border-purple-20 bg-white p-7">
+              <div key={l.name} className="rounded-2xl border border-purple-20 bg-white p-5 sm:p-7">
                 <div className="flex size-[52px] items-center justify-center rounded-full bg-purple-10">
                   <span className="font-seasons text-[20px] font-bold text-purple">{l.initial}</span>
                 </div>
@@ -209,9 +209,9 @@ export default function AboutPage() {
             ))}
           </div>
 
-          <div className="mt-[24px] grid grid-cols-2 gap-6 sm:grid-cols-4">
+          <div className="mt-4 grid grid-cols-2 gap-4 sm:mt-[24px] sm:gap-6 lg:grid-cols-4">
             {team.map((l) => (
-              <div key={l.name} className="rounded-2xl border border-purple-20 bg-white p-7">
+              <div key={l.name} className="rounded-2xl border border-purple-20 bg-white p-5 sm:p-7">
                 <div className="flex size-[52px] items-center justify-center rounded-full bg-purple-10">
                   <span className="font-seasons text-[20px] font-bold text-purple">{l.initial}</span>
                 </div>
@@ -224,20 +224,20 @@ export default function AboutPage() {
       </section>
 
       {/* Visit our stores */}
-      <section className="py-[64px]">
+      <section className="py-10 sm:py-[48px] lg:py-[64px]">
         <div className="page-x">
           <div className="flex items-center justify-between">
-            <h2 className="font-seasons text-[36px] leading-[1.15] font-bold tracking-[-0.8px] text-ink sm:text-[40px]">
+            <h2 className="font-seasons text-[26px] leading-[1.15] font-bold tracking-[-0.8px] text-ink sm:text-[36px] lg:text-[40px]">
               Visit Our Stores
             </h2>
             <Link href="/contact" className="hidden items-center gap-1.5 text-[15px] font-semibold text-purple hover:underline sm:inline-flex">
               All locations <span aria-hidden>→</span>
             </Link>
           </div>
-          <div className="mt-[32px] grid gap-8 sm:grid-cols-2">
+          <div className="mt-6 grid gap-4 sm:mt-[32px] sm:grid-cols-2 sm:gap-8">
             {stores.map((s) => (
-              <div key={s.name} className="rounded-2xl border border-purple-20 bg-white p-8">
-                <h3 className="font-seasons text-[24px] font-bold tracking-[-0.4px] text-ink">{s.name}</h3>
+              <div key={s.name} className="rounded-2xl border border-purple-20 bg-white p-6 sm:p-8">
+                <h3 className="font-seasons text-[20px] font-bold tracking-[-0.4px] text-ink sm:text-[24px]">{s.name}</h3>
                 <p className="mt-[16px] text-[15px] leading-[24px] tracking-[0.24px] text-ink-70">{s.address}</p>
                 <p className="mt-[16px] text-[14px] leading-[20px] text-ink-50">{s.hours}</p>
                 <Link href="#" className="mt-[16px] inline-flex items-center gap-1.5 text-[15px] font-semibold text-purple hover:underline">
@@ -250,7 +250,7 @@ export default function AboutPage() {
       </section>
 
       {/* Personal assistance */}
-      <section className="mx-auto w-[calc(100%-27px)] max-w-[1415px] rounded-[38px] bg-purple-10 px-[25px] py-[25px] mb-[48px]">
+      <section className="mx-auto w-[calc(100%-27px)] max-w-[1415px] rounded-[20px] bg-purple-10 px-4 py-5 mb-8 sm:rounded-[38px] sm:px-[25px] sm:py-[25px] sm:mb-[48px]">
         <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
           <div>
             <h2 className="font-seasons text-[28px] font-bold tracking-[-0.4px] text-ink">Need Personal Assistance?</h2>

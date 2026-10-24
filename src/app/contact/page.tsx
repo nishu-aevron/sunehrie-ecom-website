@@ -53,7 +53,7 @@ export default function ContactPage() {
           <span className="text-ink">Contact Us</span>
         </nav>
         <div className="relative mt-[38px]">
-          <h1 className="font-seasons text-[44px] leading-[1.1] font-bold tracking-[-1.6px] text-ink sm:text-[52px]">Get in Touch</h1>
+          <h1 className="font-seasons text-[32px] leading-[1.1] font-bold tracking-[-1.6px] text-ink sm:text-[44px] lg:text-[52px]">Get in Touch</h1>
           <p className="mt-[12px] text-[15px] leading-[24px] tracking-[0.24px] text-ink-70">
             We&apos;d love to hear from you — whether it&apos;s about a purchase, a custom order, or simply to say hello.
           </p>
@@ -61,10 +61,10 @@ export default function ContactPage() {
       </section>
 
       {/* Form + sidebar */}
-      <section className="page-x pb-[56px]">
-        <div className="flex flex-col gap-12 lg:flex-row">
+      <section className="page-x pb-8 sm:pb-[56px]">
+        <div className="flex flex-col gap-8 sm:gap-12 lg:flex-row">
           {/* Inquiry form */}
-          <div className="flex-1 rounded-2xl border border-purple-20 bg-white p-8">
+          <div className="flex-1 rounded-2xl border border-purple-20 bg-white p-5 sm:p-8">
             <h2 className="font-seasons text-[28px] font-bold tracking-[-0.4px] text-ink">Send Us a Message</h2>
             <p className="mt-[8px] text-[14px] leading-[22px] text-ink-50">Fill out the form and we&apos;ll get back to you within 24 hours.</p>
 
@@ -119,9 +119,9 @@ export default function ContactPage() {
 
           {/* Sidebar */}
           <div className="w-full shrink-0 lg:w-[400px]">
-            <div className="rounded-2xl border border-purple-20 bg-white p-8">
+            <div className="rounded-2xl border border-purple-20 bg-white p-5 sm:p-8">
               <p className="text-[11px] font-semibold tracking-[2px] uppercase text-purple">Reach Us</p>
-              <h3 className="mt-[24px] font-seasons text-[28px] leading-[1.2] font-bold tracking-[-0.4px] text-ink">
+              <h3 className="mt-4 font-seasons text-[24px] leading-[1.2] font-bold tracking-[-0.4px] text-ink sm:mt-[24px] sm:text-[28px]">
                 Prefer to Talk{" "}
                 <span className="text-purple">Directly?</span>
               </h3>
@@ -165,20 +165,20 @@ export default function ContactPage() {
       </section>
 
       {/* Store contacts */}
-      <section className="bg-purple-10/50 py-[56px]">
+      <section className="bg-purple-10/50 py-8 sm:py-[56px]">
         <div className="page-x">
           <p className="text-[11px] font-semibold tracking-[2px] uppercase text-purple">Our Stores</p>
-          <h2 className="mt-[16px] font-seasons text-[36px] leading-[1.15] font-bold tracking-[-0.8px] text-ink sm:text-[40px]">
+          <h2 className="mt-[16px] font-seasons text-[26px] leading-[1.15] font-bold tracking-[-0.8px] text-ink sm:text-[36px] lg:text-[40px]">
             Visit Us in Person
           </h2>
-          <div className="mt-[32px] grid gap-8 sm:grid-cols-2">
+          <div className="mt-6 grid gap-4 sm:mt-[32px] sm:grid-cols-2 sm:gap-8">
             {storeContacts.map((store) => (
-              <div key={store.name} className="rounded-2xl border border-purple-20 bg-white p-8">
+              <div key={store.name} className="rounded-2xl border border-purple-20 bg-white p-5 sm:p-8">
                 <div className="flex items-center gap-[18px]">
                   <svg className="size-8 shrink-0 text-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016A3.001 3.001 0 0021 9.349m-18 0a2.997 2.997 0 00.177-.756L4.2 3.834A1.5 1.5 0 015.694 2.5h12.612a1.5 1.5 0 011.494 1.334l1.023 4.76a2.997 2.997 0 00.177.755" />
                   </svg>
-                  <h3 className="font-seasons text-[24px] font-bold tracking-[-0.4px] text-ink">{store.name}</h3>
+                  <h3 className="font-seasons text-[18px] font-bold tracking-[-0.4px] text-ink sm:text-[24px]">{store.name}</h3>
                 </div>
                 <p className="mt-[18px] text-[15px] leading-[24px] tracking-[0.24px] text-ink-70">{store.address}</p>
                 <p className="mt-[16px] text-[14px] leading-[24px] text-ink-70">{store.hours}</p>

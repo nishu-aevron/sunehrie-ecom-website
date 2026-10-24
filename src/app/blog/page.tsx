@@ -41,7 +41,7 @@ export default function BlogPage() {
           <span className="text-ink">Blog</span>
         </nav>
         <div className="relative mt-[38px]">
-          <h1 className="font-seasons text-[44px] leading-[1.1] font-bold tracking-[-1.6px] text-ink sm:text-[52px]">The Sunehriè Journal</h1>
+          <h1 className="font-seasons text-[32px] leading-[1.1] font-bold tracking-[-1.6px] text-ink sm:text-[44px] lg:text-[52px]">The Sunehriè Journal</h1>
           <p className="mt-[12px] text-[15px] leading-[24px] tracking-[0.24px] text-ink-70">
             Stories, style notes, and expert guides from the world of fine jewellery.
           </p>
@@ -54,9 +54,9 @@ export default function BlogPage() {
           <div className="relative h-[300px] w-full shrink-0 lg:h-auto lg:w-[704px]">
             <Image src={featured.image} alt={featured.title} fill sizes="704px" className="object-cover" />
           </div>
-          <div className="flex flex-col justify-center p-10">
+          <div className="flex flex-col justify-center p-5 sm:p-10">
             <p className="text-[11px] font-semibold tracking-[2px] uppercase text-purple">{featured.category}</p>
-            <h2 className="mt-[24px] font-seasons text-[30px] leading-[1.15] font-bold tracking-[-0.8px] text-ink sm:text-[36px]">
+            <h2 className="mt-4 font-seasons text-[24px] leading-[1.15] font-bold tracking-[-0.8px] text-ink sm:mt-[24px] sm:text-[30px] lg:text-[36px]">
               {featured.title}
             </h2>
             <p className="mt-[24px] text-[15px] leading-[24px] tracking-[0.24px] text-ink-70">{featured.description}</p>
@@ -93,13 +93,13 @@ export default function BlogPage() {
           </div>
         </div>
 
-        <h2 className="mt-[32px] font-seasons text-[32px] font-bold tracking-[-0.8px] text-ink">Latest Stories</h2>
+        <h2 className="mt-6 font-seasons text-[26px] font-bold tracking-[-0.8px] text-ink sm:mt-[32px] sm:text-[32px]">Latest Stories</h2>
 
         {/* Article grid */}
-        <div className="mt-[30px] grid gap-[36px] sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-[20px] grid gap-5 sm:mt-[30px] sm:grid-cols-2 sm:gap-[36px] lg:grid-cols-3">
           {articles.map((article) => (
             <article key={article.title} className="group overflow-hidden rounded-2xl border border-purple-20 bg-white">
-              <div className="relative h-[260px] overflow-hidden">
+              <div className="relative h-[200px] overflow-hidden sm:h-[260px]">
                 <Image src={article.image} alt={article.title} fill sizes="408px" className="object-cover transition-transform duration-500 group-hover:scale-105" />
                 <span className="absolute top-[16px] left-[16px] rounded-full bg-white/90 px-[12px] py-[6px] text-[11px] font-semibold tracking-[1px] uppercase text-ink backdrop-blur-sm">
                   {article.badge}
@@ -129,13 +129,13 @@ export default function BlogPage() {
         <div className="page-x flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
           <div className="max-w-[744px]">
             <p className="text-[11px] font-semibold tracking-[2px] uppercase text-purple">Stay Connected</p>
-            <h2 className="mt-[14px] font-seasons text-[32px] font-bold tracking-[-0.8px] text-ink">
+            <h2 className="mt-[14px] font-seasons text-[24px] font-bold tracking-[-0.8px] text-ink sm:text-[32px]">
               Stories, tips, and new arrivals — delivered to your inbox.
             </h2>
             <p className="mt-[14px] text-[14px] leading-[22px] text-ink-70">No spam, just curated content about jewellery, style, and our latest collections.</p>
           </div>
           <div className="w-full max-w-[480px]">
-            <div className="flex gap-[12px]">
+            <div className="flex flex-col gap-3 sm:flex-row sm:gap-[12px]">
               <div className="flex-1">
                 <label className="text-[13px] font-semibold text-ink">Email Address</label>
                 <input type="email" placeholder="you@example.com" className="mt-[9px] w-full rounded-xl border border-purple-20 bg-white px-4 py-3 text-[15px] text-ink outline-none transition-colors focus:border-purple" />

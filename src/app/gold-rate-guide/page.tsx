@@ -52,7 +52,7 @@ const pricingFactors = [
 export default function GoldRateGuidePage() {
   return (
     <main className="bg-white">
-      <section className="page-x pt-[30px] pb-16">
+      <section className="page-x pt-[30px] pb-8 sm:pb-16">
         <nav aria-label="Breadcrumb" className="flex items-center gap-1 text-ink">
           <Link href="/" className="text-[12px] leading-5 hover:underline">Home</Link>
           <span className="font-inter text-[14px] leading-5">/</span>
@@ -60,16 +60,16 @@ export default function GoldRateGuidePage() {
           <span className="font-inter text-[14px] leading-5">/</span>
           <span className="text-[12px] leading-5">Gold Rate Guide</span>
         </nav>
-        <h1 className="mt-[28px] font-seasons text-[44px] leading-[1.1] font-bold tracking-[-1px] text-ink sm:text-[52px]">Gold Rate Guide</h1>
+        <h1 className="mt-[28px] font-seasons text-[32px] leading-[1.1] font-bold tracking-[-1px] text-ink sm:text-[44px] lg:text-[52px]">Gold Rate Guide</h1>
         <p className="mt-3 max-w-[800px] text-[15px] leading-[24px] text-ink-70">
           Understand gold purity, check indicative rates and learn how Sunehrie prices every piece with full transparency.
         </p>
       </section>
 
       {/* Today's Rates */}
-      <section className="mx-auto w-[calc(100%-27px)] max-w-[1415px] rounded-[38px] bg-purple-10 px-[72px] py-16">
+      <section className="mx-auto w-[calc(100%-27px)] max-w-[1415px] rounded-[20px] bg-purple-10 px-5 py-8 sm:rounded-[38px] sm:px-10 sm:py-12 lg:px-[72px] lg:py-16">
         <p className="text-[11px] font-semibold tracking-[1.5px] text-purple uppercase">Indicative Rates</p>
-        <h2 className="mt-2 font-seasons text-[36px] leading-[1.1] font-bold tracking-[-0.8px] text-ink sm:text-[44px]">Today&apos;s Gold Rates</h2>
+        <h2 className="mt-2 font-seasons text-[26px] leading-[1.1] font-bold tracking-[-0.8px] text-ink sm:text-[36px] lg:text-[44px]">Today&apos;s Gold Rates</h2>
         <p className="mt-3 text-[13px] leading-[20px] text-ink-50">
           Rates are indicative and updated daily. Actual prices may vary based on weight and design. All rates per gram.
         </p>
@@ -98,15 +98,15 @@ export default function GoldRateGuidePage() {
       </section>
 
       {/* Purity Guide */}
-      <section className="page-x py-20">
+      <section className="page-x py-10 sm:py-16 lg:py-20">
         <p className="text-[11px] font-semibold tracking-[1.5px] text-purple uppercase">Understanding Purity</p>
-        <h2 className="mt-2 font-seasons text-[36px] leading-[1.1] font-bold tracking-[-0.8px] text-ink sm:text-[44px]">Karatage Comparison</h2>
+        <h2 className="mt-2 font-seasons text-[26px] leading-[1.1] font-bold tracking-[-0.8px] text-ink sm:text-[36px] lg:text-[44px]">Karatage Comparison</h2>
         <p className="mt-3 max-w-[700px] text-[15px] leading-[24px] text-ink-70">
           Karat (KT) measures the proportion of pure gold in an alloy. Higher karatage means more gold and a warmer colour, while lower karatage offers greater durability.
         </p>
-        <div className="mt-10 grid gap-6 lg:grid-cols-3">
+        <div className="mt-6 grid grid-cols-1 gap-4 sm:mt-10 sm:gap-6 lg:grid-cols-3">
           {purityGuide.map((p) => (
-            <div key={p.karat} className="rounded-2xl border border-purple-20 bg-white p-8">
+            <div key={p.karat} className="rounded-2xl border border-purple-20 bg-white p-5 sm:p-8">
               <div className="flex items-center gap-3">
                 <span className="flex h-10 items-center justify-center rounded-lg bg-gold-cream px-3 text-[16px] font-bold text-gold-deep">{p.karat}</span>
                 <span className="text-[14px] text-ink-50">{p.gold} pure gold</span>
@@ -135,15 +135,15 @@ export default function GoldRateGuidePage() {
       </section>
 
       {/* How We Price */}
-      <section className="mx-auto w-[calc(100%-27px)] max-w-[1415px] rounded-[38px] bg-purple-10 px-[72px] py-16">
+      <section className="mx-auto w-[calc(100%-27px)] max-w-[1415px] rounded-[20px] bg-purple-10 px-5 py-8 sm:rounded-[38px] sm:px-10 sm:py-12 lg:px-[72px] lg:py-16">
         <p className="text-[11px] font-semibold tracking-[1.5px] text-purple uppercase">Full Transparency</p>
-        <h2 className="mt-2 font-seasons text-[36px] leading-[1.1] font-bold tracking-[-0.8px] text-ink sm:text-[44px]">How Sunehrie Prices Gold</h2>
+        <h2 className="mt-2 font-seasons text-[26px] leading-[1.1] font-bold tracking-[-0.8px] text-ink sm:text-[36px] lg:text-[44px]">How Sunehrie Prices Gold</h2>
         <p className="mt-3 max-w-[700px] text-[15px] leading-[24px] text-ink-70">
           Every product page shows a complete price breakup so you know exactly what you are paying for. No hidden charges, no inflated making costs.
         </p>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-6 grid grid-cols-1 gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
           {pricingFactors.map((f, i) => (
-            <div key={f.title} className="rounded-2xl border border-purple-20 bg-white p-6">
+            <div key={f.title} className="rounded-2xl border border-purple-20 bg-white p-5 sm:p-6">
               <span className="flex size-10 items-center justify-center rounded-lg bg-purple-10 text-[14px] font-bold text-purple">{String(i + 1).padStart(2, "0")}</span>
               <h3 className="mt-4 text-[16px] font-bold text-ink">{f.title}</h3>
               <p className="mt-2 text-[13px] leading-[20px] text-ink-70">{f.description}</p>
@@ -153,10 +153,10 @@ export default function GoldRateGuidePage() {
       </section>
 
       {/* Historical Note */}
-      <section className="page-x py-20">
-        <div className="rounded-2xl border border-purple-20 bg-white p-10 lg:p-12">
+      <section className="page-x py-10 sm:py-16 lg:py-20">
+        <div className="rounded-2xl border border-purple-20 bg-white p-6 sm:p-10 lg:p-12">
           <p className="text-[11px] font-semibold tracking-[1.5px] text-purple uppercase">Market Context</p>
-          <h2 className="mt-2 font-seasons text-[30px] leading-[1.1] font-bold tracking-[-0.5px] text-ink sm:text-[36px]">Gold as a Long-Term Asset</h2>
+          <h2 className="mt-2 font-seasons text-[24px] leading-[1.1] font-bold tracking-[-0.5px] text-ink sm:text-[30px] lg:text-[36px]">Gold as a Long-Term Asset</h2>
           <p className="mt-4 max-w-[800px] text-[15px] leading-[24px] text-ink-70">
             Gold has been a trusted store of value in Indian households for generations. Over the past two decades, gold prices in India have appreciated by an average of 10–12% per annum, outperforming several traditional asset classes. While past performance does not guarantee future returns, hallmarked gold jewellery from a trusted source combines the pleasure of wearing with the confidence of intrinsic value.
           </p>
@@ -166,7 +166,7 @@ export default function GoldRateGuidePage() {
         </div>
       </section>
 
-      <div className="pb-16">
+      <div className="pb-10 sm:pb-16">
         <TrustStrip variant="light" />
       </div>
     </main>

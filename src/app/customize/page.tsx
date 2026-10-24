@@ -78,13 +78,13 @@ export default function CustomizePage() {
 
   return (
     <main className="bg-white">
-      <section className="page-x pt-[30px] pb-16">
+      <section className="page-x pt-[30px] pb-8 sm:pb-16">
         <nav aria-label="Breadcrumb" className="flex items-center gap-1 text-ink">
           <Link href="/" className="text-[12px] leading-5 hover:underline">Home</Link>
           <span className="font-inter text-[14px] leading-5">/</span>
           <span className="text-[12px] leading-5">Customize Your Jewellery</span>
         </nav>
-        <h1 className="mt-[28px] font-seasons text-[44px] leading-[1.1] font-bold tracking-[-1px] text-ink sm:text-[52px]">
+        <h1 className="mt-[28px] font-seasons text-[32px] leading-[1.1] font-bold tracking-[-1px] text-ink sm:text-[44px] lg:text-[52px]">
           Customize Your Jewellery
         </h1>
         <p className="mt-3 max-w-[800px] text-[15px] leading-[24px] text-ink-70">
@@ -93,14 +93,14 @@ export default function CustomizePage() {
       </section>
 
       {/* Process Steps */}
-      <section className="mx-auto w-[calc(100%-27px)] max-w-[1415px] rounded-[38px] bg-purple-10 px-[72px] py-16">
+      <section className="mx-auto w-[calc(100%-27px)] max-w-[1415px] rounded-[20px] bg-purple-10 px-5 py-10 sm:rounded-[38px] sm:px-[72px] sm:py-16">
         <p className="text-[11px] font-semibold tracking-[1.5px] text-purple uppercase">The Process</p>
-        <h2 className="mt-2 font-seasons text-[36px] leading-[1.1] font-bold tracking-[-0.8px] text-ink sm:text-[44px]">
+        <h2 className="mt-2 font-seasons text-[28px] leading-[1.1] font-bold tracking-[-0.8px] text-ink sm:text-[36px] lg:text-[44px]">
           From Idea to Heirloom in Four Steps
         </h2>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-6 grid gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
           {steps.map((s) => (
-            <div key={s.num} className="rounded-2xl border border-purple-20 bg-white p-8">
+            <div key={s.num} className="rounded-2xl border border-purple-20 bg-white p-5 sm:p-8">
               <span className="flex size-10 items-center justify-center rounded-lg bg-purple-10 text-[14px] font-bold text-purple">{s.num}</span>
               <h3 className="mt-5 text-[16px] font-bold text-ink">{s.title}</h3>
               <p className="mt-3 text-[13px] leading-[20px] text-ink-70">{s.description}</p>
@@ -110,13 +110,13 @@ export default function CustomizePage() {
       </section>
 
       {/* Customization Options */}
-      <section className="page-x py-20">
+      <section className="page-x py-10 sm:py-16 lg:py-20">
         <p className="text-[11px] font-semibold tracking-[1.5px] text-purple uppercase">Your Choices</p>
-        <h2 className="mt-2 font-seasons text-[36px] leading-[1.1] font-bold tracking-[-0.8px] text-ink sm:text-[44px]">Customization Options</h2>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2">
+        <h2 className="mt-2 font-seasons text-[28px] leading-[1.1] font-bold tracking-[-0.8px] text-ink sm:text-[36px] lg:text-[44px]">Customization Options</h2>
+        <div className="mt-6 grid gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-6">
           {options.map((o) => (
-            <div key={o.title} className="rounded-2xl border border-purple-20 bg-white p-8">
-              <h3 className="font-seasons text-[22px] leading-[1.2] font-bold tracking-[-0.3px] text-ink">{o.title}</h3>
+            <div key={o.title} className="rounded-2xl border border-purple-20 bg-white p-5 sm:p-8">
+              <h3 className="font-seasons text-[18px] leading-[1.2] font-bold tracking-[-0.3px] text-ink sm:text-[22px]">{o.title}</h3>
               <p className="mt-3 text-[14px] leading-[22px] text-ink-70">{o.description}</p>
             </div>
           ))}
@@ -124,7 +124,7 @@ export default function CustomizePage() {
       </section>
 
       {/* Pricing & Timeline */}
-      <section className="mx-auto w-[calc(100%-27px)] max-w-[1415px] rounded-[38px] bg-purple-10 px-[72px] py-16">
+      <section className="mx-auto w-[calc(100%-27px)] max-w-[1415px] rounded-[20px] bg-purple-10 px-5 py-10 sm:rounded-[38px] sm:px-[72px] sm:py-16">
         <div className="grid gap-8 lg:grid-cols-2">
           <div>
             <p className="text-[11px] font-semibold tracking-[1.5px] text-purple uppercase">Transparent Pricing</p>
@@ -155,9 +155,9 @@ export default function CustomizePage() {
       </section>
 
       {/* CTA */}
-      <section className="page-x py-16">
+      <section className="page-x py-10 sm:py-16">
         <div className="flex flex-col items-center gap-3 text-center">
-          <h2 className="font-seasons text-[32px] leading-[1.1] font-bold tracking-[-0.5px] text-ink">Ready to Create Something Unique?</h2>
+          <h2 className="font-seasons text-[26px] leading-[1.1] font-bold tracking-[-0.5px] text-ink sm:text-[32px]">Ready to Create Something Unique?</h2>
           <p className="max-w-[500px] text-[15px] leading-[24px] text-ink-70">
             Book a complimentary design consultation with our jewellery advisors.
           </p>
@@ -171,9 +171,9 @@ export default function CustomizePage() {
       </section>
 
       {/* FAQ */}
-      <section className="page-x pb-20">
-        <h2 className="font-seasons text-[32px] leading-[1.1] font-bold tracking-[-0.5px] text-ink">Common Questions</h2>
-        <div className="mt-8 flex flex-col">
+      <section className="page-x pb-10 sm:pb-20">
+        <h2 className="font-seasons text-[26px] leading-[1.1] font-bold tracking-[-0.5px] text-ink sm:text-[32px]">Common Questions</h2>
+        <div className="mt-6 flex flex-col sm:mt-8">
           {faqs.map((faq, i) => (
             <div key={i} className="border-b border-purple-20">
               <button
@@ -200,7 +200,7 @@ export default function CustomizePage() {
         </div>
       </section>
 
-      <div className="pb-16">
+      <div className="pb-10 sm:pb-16">
         <TrustStrip variant="light" />
       </div>
     </main>

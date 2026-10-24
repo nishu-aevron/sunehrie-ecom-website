@@ -57,22 +57,22 @@ export default function KnowledgeHubPage() {
           <span className="font-inter text-[14px] leading-5">/</span>
           <span className="text-[12px] leading-5">Knowledge Hub</span>
         </nav>
-        <h1 className="mt-[28px] font-seasons text-[44px] leading-[1.1] font-bold tracking-[-1px] text-ink sm:text-[52px]">Knowledge Hub</h1>
+        <h1 className="mt-[28px] font-seasons text-[32px] leading-[1.1] font-bold tracking-[-1px] text-ink sm:text-[44px] lg:text-[52px]">Knowledge Hub</h1>
         <p className="mt-3 max-w-[800px] text-[15px] leading-[24px] text-ink-70">
           Your guide to understanding jewellery — from diamonds and gold purity to finding the perfect fit. Browse our curated guides to make every purchase with confidence.
         </p>
       </section>
 
-      <section className="page-x pb-20">
-        <div className="grid gap-6 sm:grid-cols-2">
+      <section className="page-x pb-12 sm:pb-20">
+        <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
           {guides.map((g) => (
             <Link
               key={g.href}
               href={g.href}
-              className="group flex flex-col gap-5 rounded-2xl border border-purple-20 bg-white p-8 transition-shadow hover:shadow-lg"
+              className="group flex flex-col gap-4 rounded-2xl border border-purple-20 bg-white p-5 transition-shadow hover:shadow-lg sm:gap-5 sm:p-8"
             >
-              <span className="flex size-[72px] items-center justify-center rounded-2xl bg-purple-10">{g.icon}</span>
-              <h2 className="font-seasons text-[26px] leading-[1.15] font-bold tracking-[-0.5px] text-ink">{g.title}</h2>
+              <span className="flex size-[56px] items-center justify-center rounded-2xl bg-purple-10 sm:size-[72px]">{g.icon}</span>
+              <h2 className="font-seasons text-[22px] leading-[1.15] font-bold tracking-[-0.5px] text-ink sm:text-[26px]">{g.title}</h2>
               <p className="text-[15px] leading-[24px] text-ink-70">{g.description}</p>
               <span className="mt-auto inline-flex items-center gap-1.5 text-[14px] font-semibold text-purple transition-colors group-hover:text-purple-deep">
                 Explore guide
@@ -83,17 +83,17 @@ export default function KnowledgeHubPage() {
         </div>
       </section>
 
-      <section className="mx-auto w-[calc(100%-27px)] max-w-[1415px] rounded-[38px] bg-purple-10 px-[72px] py-16">
+      <section className="mx-auto w-[calc(100%-16px)] max-w-[1415px] rounded-[20px] bg-purple-10 px-5 py-8 sm:w-[calc(100%-27px)] sm:rounded-[38px] sm:px-10 sm:py-12 lg:px-[72px] lg:py-16">
         <p className="text-[11px] font-semibold tracking-[1.5px] text-purple uppercase">Why It Matters</p>
-        <h2 className="mt-2 font-seasons text-[36px] leading-[1.1] font-bold tracking-[-0.8px] text-ink sm:text-[44px]">
+        <h2 className="mt-2 font-seasons text-[26px] leading-[1.1] font-bold tracking-[-0.8px] text-ink sm:text-[36px] lg:text-[44px]">
           An Informed Purchase Is a Beautiful Purchase
         </h2>
         <p className="mt-4 max-w-[800px] text-[15px] leading-[24px] text-ink-70">
           At Sunehrie, we believe that the more you know about your jewellery, the more meaningful it becomes. Every piece in our collection is crafted with BIS-hallmarked gold and IGI-certified natural diamonds — and understanding what those standards mean helps you appreciate the artistry and value behind each creation.
         </p>
-        <div className="mt-10 grid gap-6 sm:grid-cols-3">
+        <div className="mt-6 grid gap-4 sm:mt-10 sm:grid-cols-3 sm:gap-6">
           {reasons.map((r) => (
-            <div key={r.title} className="rounded-2xl border border-purple-20 bg-white p-8">
+            <div key={r.title} className="rounded-2xl border border-purple-20 bg-white p-5 sm:p-8">
               <h3 className="font-seasons text-[22px] leading-[1.2] font-bold tracking-[-0.3px] text-ink">{r.title}</h3>
               <p className="mt-3 text-[14px] leading-[22px] text-ink-70">{r.description}</p>
             </div>
@@ -101,9 +101,9 @@ export default function KnowledgeHubPage() {
         </div>
       </section>
 
-      <section className="page-x py-16">
+      <section className="page-x py-10 sm:py-16">
         <div className="flex flex-col items-center gap-3 text-center">
-          <h2 className="font-seasons text-[32px] leading-[1.1] font-bold tracking-[-0.5px] text-ink">Still Have Questions?</h2>
+          <h2 className="font-seasons text-[26px] leading-[1.1] font-bold tracking-[-0.5px] text-ink sm:text-[32px]">Still Have Questions?</h2>
           <p className="max-w-[500px] text-[15px] leading-[24px] text-ink-70">
             Our jewellery advisors are here to help you understand every detail.
           </p>
@@ -116,7 +116,7 @@ export default function KnowledgeHubPage() {
         </div>
       </section>
 
-      <div className="pb-16">
+      <div className="pb-10 sm:pb-16">
         <TrustStrip variant="light" />
       </div>
     </main>

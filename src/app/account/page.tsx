@@ -44,11 +44,11 @@ export default function AccountPage() {
           <span className="text-[12px] leading-5">My Account</span>
         </nav>
 
-        <h1 className="mt-4 font-seasons text-[32px] leading-none font-bold tracking-[-0.8px] text-ink sm:text-[40px]">
+        <h1 className="mt-4 font-seasons text-[28px] leading-none font-bold tracking-[-0.8px] text-ink sm:text-[32px] lg:text-[40px]">
           My Account
         </h1>
 
-        <div className="mt-8 flex flex-col gap-8 lg:flex-row">
+        <div className="mt-6 flex flex-col gap-6 sm:mt-8 sm:gap-8 lg:flex-row">
           {/* Sidebar */}
           <aside className="w-full shrink-0 lg:w-[300px]">
             <div className="rounded-[12px] border border-purple-20 bg-white">
@@ -143,8 +143,8 @@ function OrdersTab() {
         </div>
 
         {/* Progress bar */}
-        <div className="mt-6">
-          <div className="flex items-center">
+        <div className="mt-6 overflow-x-auto">
+          <div className="flex min-w-[400px] items-center">
             {trackingSteps.map((step, i) => (
               <div key={step} className="flex flex-1 flex-col items-center">
                 <div className="flex w-full items-center">
@@ -192,31 +192,33 @@ function OrdersTab() {
         </div>
 
         {/* Order product */}
-        <div className="mt-6 flex items-center gap-4 rounded-[12px] border border-purple-10 bg-blush-light p-4">
-          <div className="relative size-[72px] shrink-0 overflow-hidden rounded-[10px] bg-white">
-            <Image
-              src="/img/products/classic-gold-ring.png"
-              alt="Classic Gold Ring"
-              fill
-              sizes="72px"
-              className="object-contain p-1"
-            />
+        <div className="mt-6 flex flex-col gap-4 rounded-[12px] border border-purple-10 bg-blush-light p-4 sm:flex-row sm:items-center">
+          <div className="flex items-center gap-4">
+            <div className="relative size-[72px] shrink-0 overflow-hidden rounded-[10px] bg-white">
+              <Image
+                src="/img/products/classic-gold-ring.png"
+                alt="Classic Gold Ring"
+                fill
+                sizes="72px"
+                className="object-contain p-1"
+              />
+            </div>
+            <div className="flex-1">
+              <p className="text-[14px] font-semibold text-ink">Classic Gold Ring</p>
+              <p className="mt-0.5 text-[12px] text-ink-50">14KT Yellow Gold · Size 11 · Qty: 1</p>
+              <p className="mt-1 text-[15px] font-bold text-purple">{inr(14350)}</p>
+            </div>
           </div>
-          <div className="flex-1">
-            <p className="text-[14px] font-semibold text-ink">Classic Gold Ring</p>
-            <p className="mt-0.5 text-[12px] text-ink-50">14KT Yellow Gold · Size 11 · Qty: 1</p>
-            <p className="mt-1 text-[15px] font-bold text-purple">{inr(14350)}</p>
-          </div>
-          <div className="flex flex-col gap-2">
+          <div className="flex gap-2 sm:flex-col sm:shrink-0">
             <button
               type="button"
-              className="rounded-[8px] border border-purple px-4 py-2 text-[12px] font-semibold text-purple transition-colors hover:bg-purple hover:text-white"
+              className="flex-1 rounded-[8px] border border-purple px-4 py-2 text-[12px] font-semibold text-purple transition-colors hover:bg-purple hover:text-white sm:flex-initial"
             >
               Track Package
             </button>
             <button
               type="button"
-              className="rounded-[8px] border border-purple-20 px-4 py-2 text-[12px] font-medium text-ink-70 transition-colors hover:border-purple hover:text-purple"
+              className="flex-1 rounded-[8px] border border-purple-20 px-4 py-2 text-[12px] font-medium text-ink-70 transition-colors hover:border-purple hover:text-purple sm:flex-initial"
             >
               Invoice
             </button>

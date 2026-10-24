@@ -25,8 +25,8 @@ function Run({ hidden }: { hidden?: boolean }) {
 /** Live gold-rate marquee (rates are static placeholders until a price feed is wired in). */
 export default function GoldTicker() {
   return (
-    <section aria-label="Today's gold rates" className="mx-auto mt-[7px] w-[calc(100%-32px)] max-w-[1391px] overflow-hidden rounded-[58px] bg-ink py-5">
-      <div className="ticker-track flex w-max font-bricolage text-[22px] leading-[22px] tracking-[-0.24px] text-white">
+    <section aria-label="Today's gold rates" className="mx-auto mt-[7px] w-[calc(100%-32px)] max-w-[1391px] overflow-hidden rounded-[58px] bg-ink py-3 sm:py-5">
+      <div className="ticker-track flex w-max font-bricolage text-[14px] leading-[14px] tracking-[-0.24px] text-white sm:text-[22px] sm:leading-[22px]">
         <Run />
         <Run hidden />
       </div>

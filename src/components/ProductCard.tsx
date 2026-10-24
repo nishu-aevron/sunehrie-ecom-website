@@ -25,7 +25,7 @@ export default function ProductCard({ product, badge, priority }: ProductCardPro
   const href = `/products/${product.slug}`;
 
   return (
-    <article className="group relative overflow-hidden rounded-3xl border border-purple-70/15 bg-white">
+    <article className="group relative overflow-hidden rounded-2xl border border-purple-70/15 bg-white sm:rounded-3xl">
       {/* Media */}
       <div className="relative aspect-square overflow-hidden border-b border-purple-30">
         <Link href={href} aria-label={product.name} className="absolute inset-0">
@@ -101,16 +101,16 @@ export default function ProductCard({ product, badge, priority }: ProductCardPro
       </div>
 
       {/* Details */}
-      <Link href={href} className="flex flex-col gap-2 px-[19px] pt-3.5 pb-[18px]">
-        <h3 className="truncate text-[15px] leading-none font-semibold text-black">{product.name}</h3>
-        <p className="flex items-center gap-2.5 leading-none font-extrabold tracking-[-0.8px] whitespace-nowrap">
-          <span className="flex items-center gap-2">
-            <span className="text-[16px] text-ink-90">{inr(priceOf(product))}</span>
-            <span className="text-[12px] text-ink-50 line-through">{inr(mrpOf(product))}</span>
+      <Link href={href} className="flex flex-col gap-1.5 px-2.5 pt-2.5 pb-3 sm:gap-2 sm:px-[19px] sm:pt-3.5 sm:pb-[18px]">
+        <h3 className="truncate text-[13px] leading-none font-semibold text-black sm:text-[15px]">{product.name}</h3>
+        <p className="flex items-center gap-1.5 leading-none font-extrabold tracking-[-0.8px] whitespace-nowrap sm:gap-2.5">
+          <span className="flex items-center gap-1 sm:gap-2">
+            <span className="text-[14px] text-ink-90 sm:text-[16px]">{inr(priceOf(product))}</span>
+            <span className="text-[10px] text-ink-50 line-through sm:text-[12px]">{inr(mrpOf(product))}</span>
           </span>
-          <span className="text-[12px] text-success">{discountPct(product)}% off</span>
+          <span className="text-[10px] text-success sm:text-[12px]">{discountPct(product)}% off</span>
         </p>
-        <p className="flex items-center gap-[5px] text-[14px] leading-none font-semibold whitespace-nowrap text-black">
+        <p className="flex items-center gap-[5px] text-[11px] leading-none font-semibold whitespace-nowrap text-black sm:text-[14px]">
           <span>{product.defaultPurity} Gold</span>
           <Icon src="/icons/card/sparkle.svg" size={8} />
           <span className="truncate">

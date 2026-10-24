@@ -15,7 +15,7 @@ const bySlug = (...slugs: string[]) => slugs.map((s) => catalog.find((p) => p.sl
 export function FineGold() {
   const items = bySlug("diamond-gold-mangalsutra-pendant", "emerald-cut-mangalsutra-pendant", "classic-diamond-gold-pendant", "classic-diamond-gold-ring");
   return (
-    <section className="page-x flex flex-col items-center gap-2.5 pt-[25px] pb-[50px]">
+    <section className="page-x flex flex-col items-center gap-2.5 pt-4 pb-8 sm:pt-[25px] sm:pb-[50px]">
       <SectionHeading
         sparkle
         align="center"
@@ -26,9 +26,9 @@ export function FineGold() {
             <br className="max-sm:hidden" /> real 9KT gold collection with natural diamonds.
           </>
         }
-        className="pb-8"
+        className="pb-4 sm:pb-8"
       />
-      <div className="grid w-full max-w-[1340px] grid-cols-1 gap-[15px] sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid w-full max-w-[1340px] grid-cols-2 gap-3 sm:gap-[15px] lg:grid-cols-4">
         {items.map((p) => (
           <ProductCard key={p.slug} product={p} />
         ))}
@@ -59,9 +59,9 @@ export function BestSellers() {
   const scroll = (dir: number) => rail.current?.scrollBy({ left: dir * 338.75, behavior: "smooth" });
 
   return (
-    <Panel className="flex flex-col gap-2.5 px-4 pt-[25px] pb-[50px] lg:px-[50px]">
-      <div className="flex items-center justify-between gap-[35px] py-[15px]">
-        <div role="tablist" className="no-scrollbar flex items-center gap-[35px] overflow-x-auto">
+    <Panel className="flex flex-col gap-2.5 px-3 pt-4 pb-8 sm:px-4 sm:pt-[25px] sm:pb-[50px] lg:px-[50px]">
+      <div className="flex items-center justify-between gap-4 py-2 sm:gap-[35px] sm:py-[15px]">
+        <div role="tablist" className="no-scrollbar flex items-center gap-3 overflow-x-auto sm:gap-[35px]">
           {tabs.map((t, i) => {
             const active = i === tab;
             return (
@@ -71,16 +71,16 @@ export function BestSellers() {
                 role="tab"
                 aria-selected={active}
                 onClick={() => (t.filter ? setTab(i) : openModal("store"))}
-                className="group flex shrink-0 cursor-pointer items-center gap-2.5"
+                className="group flex shrink-0 cursor-pointer items-center gap-1.5 sm:gap-2.5"
               >
-                <span className={`flex size-[35px] items-center justify-center rounded-[34px] border p-1 ${active ? "border-purple" : "border-transparent"}`}>
-                  <span className="relative size-[30px] overflow-hidden rounded-full">
+                <span className={`flex size-[28px] items-center justify-center rounded-[34px] border p-0.5 sm:size-[35px] sm:p-1 ${active ? "border-purple" : "border-transparent"}`}>
+                  <span className="relative size-[24px] overflow-hidden rounded-full sm:size-[30px]">
                     <Image src={t.chip} alt="" fill sizes="30px" className="object-cover" />
                   </span>
                 </span>
                 <span
-                  className={`text-[18px] leading-[18px] font-medium tracking-[-0.8px] whitespace-nowrap transition-colors ${
-                    active ? "border-b border-purple px-2.5 py-[15px] text-purple" : "py-3 text-purple-70 group-hover:text-purple"
+                  className={`text-[13px] leading-[13px] font-medium tracking-[-0.8px] whitespace-nowrap transition-colors sm:text-[18px] sm:leading-[18px] ${
+                    active ? "border-b border-purple px-1.5 py-2 text-purple sm:px-2.5 sm:py-[15px]" : "py-2 text-purple-70 group-hover:text-purple sm:py-3"
                   }`}
                 >
                   {t.label}
@@ -138,12 +138,12 @@ export function FeaturedCollection() {
     "solitaire-heart-diamond-pendant",
   );
   return (
-    <Panel className="flex flex-col gap-2.5 overflow-hidden px-4 pt-[25px] pb-[50px] lg:flex-row lg:justify-center lg:px-[50px]">
-      <div className="relative flex flex-col gap-[15px] py-8 lg:w-[616px] lg:shrink-0">
+    <Panel className="flex flex-col gap-2.5 overflow-hidden px-3 pt-4 pb-8 sm:px-4 sm:pt-[25px] sm:pb-[50px] lg:flex-row lg:justify-center lg:px-[50px]">
+      <div className="relative flex flex-col gap-[15px] py-4 sm:py-8 lg:w-[616px] lg:shrink-0">
         <div className="relative z-10 flex max-w-[468px] flex-col gap-2.5">
-          <Icon src="/icons/home/phoenix.svg" size={[38, 88]} />
-          <h2 className="font-seasons text-[32px] leading-none font-bold tracking-[-0.8px] text-purple sm:text-[40px]">Featured New Collection</h2>
-          <p className="text-[13.1px] leading-[19.6px] font-medium tracking-[0.24px] text-[#232323]">
+          <Icon src="/icons/home/phoenix.svg" size={[38, 88]} className="max-sm:!h-[60px] max-sm:!w-[26px]" />
+          <h2 className="font-seasons text-[26px] leading-none font-bold tracking-[-0.8px] text-purple sm:text-[32px] lg:text-[40px]">Featured New Collection</h2>
+          <p className="text-[12px] leading-[18px] font-medium tracking-[0.24px] text-[#232323] sm:text-[13.1px] sm:leading-[19.6px]">
             Strong enough for every day, precious enough to celebrate. Explore our real 9KT gold collection with natural diamonds.
           </p>
         </div>
@@ -152,7 +152,7 @@ export function FeaturedCollection() {
         </div>
         <Icon src="/icons/home/phoenix-watermark.svg" size={[319, 743]} className="pointer-events-none absolute top-[277px] left-[-91px] max-lg:hidden" />
       </div>
-      <div className="grid gap-[15px] sm:grid-cols-2 lg:w-[689px] lg:px-[13.25px]">
+      <div className="grid grid-cols-2 gap-3 sm:gap-[15px] lg:w-[689px] lg:px-[13.25px]">
         {items.map((p) => (
           <ProductCard key={p.slug} product={p} />
         ))}
