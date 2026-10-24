@@ -51,7 +51,7 @@ export default function FaqPage() {
         </nav>
         <div className="relative mt-[38px] flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h1 className="font-seasons text-[44px] leading-[1.1] font-bold tracking-[-1.6px] text-ink sm:text-[52px]">Frequently Asked Questions</h1>
+            <h1 className="font-seasons text-[32px] leading-[1.1] font-bold tracking-[-1.6px] text-ink sm:text-[44px] lg:text-[52px]">Frequently Asked Questions</h1>
             <p className="mt-[12px] text-[15px] leading-[24px] tracking-[0.24px] text-ink-70">
               Find answers to common questions about orders, payments, returns, and our jewellery.
             </p>
@@ -96,7 +96,7 @@ export default function FaqPage() {
                   className="flex w-full items-center justify-between gap-4 py-[20px] text-left"
                 >
                   <div className="flex flex-1 flex-col gap-1 sm:flex-row sm:items-center sm:gap-8">
-                    <span className="w-full max-w-[240px] text-[15px] font-semibold text-ink">{faq.question}</span>
+                    <span className="w-full sm:max-w-[240px] text-[15px] font-semibold text-ink">{faq.question}</span>
                     {!isOpen && (
                       <span className="hidden text-[14px] leading-[24px] text-ink-70 sm:block sm:flex-1 truncate">{faq.answer}</span>
                     )}
@@ -120,10 +120,10 @@ export default function FaqPage() {
       </section>
 
       {/* Still have questions */}
-      <section className="mx-auto w-[calc(100%-27px)] max-w-[1415px] rounded-[38px] bg-purple-10 px-[25px] py-[25px] mb-[24px]">
+      <section className="mx-auto w-[calc(100%-27px)] max-w-[1415px] rounded-[20px] bg-purple-10 px-4 py-5 mb-[24px] sm:rounded-[38px] sm:px-[25px] sm:py-[25px]">
         <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
           <div>
-            <h2 className="font-seasons text-[28px] font-bold tracking-[-0.4px] text-ink">Still Have Questions?</h2>
+            <h2 className="font-seasons text-[24px] font-bold tracking-[-0.4px] text-ink sm:text-[28px]">Still Have Questions?</h2>
             <p className="mt-[12px] text-[15px] leading-[24px] tracking-[0.24px] text-ink-70">
               Our team is here to help — reach out via email at sunehrie.care@gmail.com or call +91 93273 31963.
             </p>

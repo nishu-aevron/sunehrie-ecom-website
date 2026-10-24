@@ -79,7 +79,7 @@ export default function CollectionView() {
       {/* Title + sort */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-[15px]">
-          <h2 className="font-seasons text-[34px] leading-[44.2px] font-bold text-charcoal">Filter</h2>
+          <h2 className="font-seasons text-[26px] leading-[34px] font-bold text-charcoal sm:text-[34px] sm:leading-[44.2px]">Filter</h2>
           <span className="text-[14px] leading-[21px] font-semibold text-charcoal">
             {results.length} item{results.length === 1 ? "" : "s"}
           </span>
@@ -126,7 +126,7 @@ export default function CollectionView() {
         </div>
       </div>
 
-      <div className="mt-[74px] flex flex-col gap-[21px] max-lg:mt-6 lg:flex-row lg:pl-[5px]">
+      <div className="mt-4 flex flex-col gap-[21px] sm:mt-6 lg:mt-[74px] lg:flex-row lg:pl-[5px]">
         <div className={`${showFilters ? "block" : "hidden"} lg:block`}>
           <FilterSidebar filters={filters} toggle={toggle} setPrice={setPrice} />
         </div>
@@ -140,7 +140,7 @@ export default function CollectionView() {
               </Link>
             </div>
           ) : (
-            <div className="grid grid-cols-1 gap-x-2.5 gap-y-[25px] sm:grid-cols-2 xl:grid-cols-3">
+            <div className="grid grid-cols-2 gap-x-2.5 gap-y-4 sm:gap-y-[25px] lg:grid-cols-3">
               {visible.map((p, i) => (
                 <div key={p.slug} className="contents">
                   {i === 6 && page === 1 && <PromoCard />}

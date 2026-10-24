@@ -49,7 +49,7 @@ export default function ProductGallery({ product }: { product: Product }) {
         </div>
       </div>
 
-      <ul className="grid grid-cols-6 gap-2.5">
+      <ul className="grid grid-cols-4 gap-2 sm:grid-cols-6 sm:gap-2.5">
         {images.map((src, i) => (
           <li key={src}>
             <button

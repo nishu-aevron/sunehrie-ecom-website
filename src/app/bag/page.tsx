@@ -22,7 +22,7 @@ export default function BagPage() {
           <span className="text-ink font-medium">Shopping Bag</span>
         </nav>
         <div className="mt-10">
-          <h1 className="font-seasons text-[44px] leading-[57px] font-bold tracking-[-1.6px] text-purple">
+          <h1 className="font-seasons text-[32px] leading-[1.1] font-bold tracking-[-1.6px] text-purple sm:text-[44px] sm:leading-[57px]">
             Shopping Bag
           </h1>
           <p className="mt-2 text-[15px] text-ink-50">
@@ -55,15 +55,15 @@ export default function BagPage() {
           </Link>
         </section>
       ) : (
-        <section className="page-x pb-16 lg:px-[72px]">
+        <section className="page-x pb-10 sm:pb-16 lg:px-[72px]">
           <div className="flex flex-col gap-10 lg:flex-row">
             {/* Cart items */}
             <div className="flex-1">
               <div className="divide-y divide-purple-20">
                 {cart.map((line) => (
                   <div key={line.key} className="flex gap-5 py-6 first:pt-0">
-                    <Link href={`/products/${line.product.slug}`} className="relative size-[120px] shrink-0 overflow-hidden rounded-2xl border border-purple-20 bg-purple-10">
-                      <Image src={line.product.image} alt={line.product.name} fill className="object-cover" sizes="120px" />
+                    <Link href={`/products/${line.product.slug}`} className="relative size-[100px] shrink-0 overflow-hidden rounded-2xl border border-purple-20 bg-purple-10 sm:size-[120px]">
+                      <Image src={line.product.image} alt={line.product.name} fill className="object-cover" sizes="(max-width: 640px) 100px, 120px" />
                     </Link>
                     <div className="flex flex-1 flex-col justify-between">
                       <div>
@@ -121,7 +121,7 @@ export default function BagPage() {
 
             {/* Order summary */}
             <div className="w-full lg:w-[400px]">
-              <div className="sticky top-8 rounded-2xl border border-purple-20 bg-white p-6">
+              <div className="sticky top-8 rounded-2xl border border-purple-20 bg-white p-5 sm:p-6">
                 <h2 className="text-[18px] font-bold text-ink">Order Summary</h2>
                 <dl className="mt-5 space-y-3 text-[14px]">
                   <div className="flex justify-between">

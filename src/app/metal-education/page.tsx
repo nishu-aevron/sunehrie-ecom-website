@@ -55,7 +55,7 @@ const metalCare = [
 export default function MetalEducationPage() {
   return (
     <main className="bg-white">
-      <section className="page-x pt-[30px] pb-16">
+      <section className="page-x pt-[30px] pb-8 sm:pb-16">
         <nav aria-label="Breadcrumb" className="flex items-center gap-1 text-ink">
           <Link href="/" className="text-[12px] leading-5 hover:underline">Home</Link>
           <span className="font-inter text-[14px] leading-5">/</span>
@@ -63,19 +63,19 @@ export default function MetalEducationPage() {
           <span className="font-inter text-[14px] leading-5">/</span>
           <span className="text-[12px] leading-5">Metal Education</span>
         </nav>
-        <h1 className="mt-[28px] font-seasons text-[44px] leading-[1.1] font-bold tracking-[-1px] text-ink sm:text-[52px]">Metal Education</h1>
+        <h1 className="mt-[28px] font-seasons text-[32px] leading-[1.1] font-bold tracking-[-1px] text-ink sm:text-[44px] lg:text-[52px]">Metal Education</h1>
         <p className="mt-3 max-w-[800px] text-[15px] leading-[24px] text-ink-70">
           The metal defines the character of your jewellery — its colour, durability and how it complements your skin. Understand your options so every piece feels right.
         </p>
       </section>
 
       {/* Types of Gold */}
-      <section className="page-x pb-20">
+      <section className="page-x pb-10 sm:pb-16 lg:pb-20">
         <p className="text-[11px] font-semibold tracking-[1.5px] text-purple uppercase">Metal Colours</p>
-        <h2 className="mt-2 font-seasons text-[36px] leading-[1.1] font-bold tracking-[-0.8px] text-ink sm:text-[44px]">Types of Gold</h2>
-        <div className="mt-10 grid gap-6 lg:grid-cols-3">
+        <h2 className="mt-2 font-seasons text-[26px] leading-[1.1] font-bold tracking-[-0.8px] text-ink sm:text-[36px] lg:text-[44px]">Types of Gold</h2>
+        <div className="mt-6 grid grid-cols-1 gap-4 sm:mt-10 sm:gap-6 lg:grid-cols-3">
           {metalTypes.map((m) => (
-            <div key={m.name} className="rounded-2xl border border-purple-20 bg-white p-8">
+            <div key={m.name} className="rounded-2xl border border-purple-20 bg-white p-5 sm:p-8">
               <div className="mb-5 flex items-center gap-3">
                 <span className="size-8 rounded-full border border-black/10" style={{ background: m.colour }} />
                 <h3 className="font-seasons text-[24px] leading-[1.15] font-bold tracking-[-0.3px] text-ink">{m.name}</h3>
@@ -95,9 +95,9 @@ export default function MetalEducationPage() {
       </section>
 
       {/* Karat Comparison */}
-      <section className="mx-auto w-[calc(100%-27px)] max-w-[1415px] rounded-[38px] bg-purple-10 px-[72px] py-16">
+      <section className="mx-auto w-[calc(100%-27px)] max-w-[1415px] rounded-[20px] bg-purple-10 px-5 py-8 sm:rounded-[38px] sm:px-10 sm:py-12 lg:px-[72px] lg:py-16">
         <p className="text-[11px] font-semibold tracking-[1.5px] text-purple uppercase">Understanding Karats</p>
-        <h2 className="mt-2 font-seasons text-[36px] leading-[1.1] font-bold tracking-[-0.8px] text-ink sm:text-[44px]">9KT vs 14KT vs 18KT</h2>
+        <h2 className="mt-2 font-seasons text-[26px] leading-[1.1] font-bold tracking-[-0.8px] text-ink sm:text-[36px] lg:text-[44px]">9KT vs 14KT vs 18KT</h2>
         <p className="mt-3 max-w-[700px] text-[15px] leading-[24px] text-ink-70">
           Karatage tells you the proportion of pure gold in a piece. Sunehrie offers 9KT, 14KT and 18KT — each suited to a different lifestyle and occasion.
         </p>
@@ -134,15 +134,15 @@ export default function MetalEducationPage() {
       </section>
 
       {/* Alloy Composition */}
-      <section className="page-x py-20">
+      <section className="page-x py-10 sm:py-16 lg:py-20">
         <p className="text-[11px] font-semibold tracking-[1.5px] text-purple uppercase">Inside the Alloy</p>
-        <h2 className="mt-2 font-seasons text-[36px] leading-[1.1] font-bold tracking-[-0.8px] text-ink sm:text-[44px]">Gold Alloy Composition</h2>
+        <h2 className="mt-2 font-seasons text-[26px] leading-[1.1] font-bold tracking-[-0.8px] text-ink sm:text-[36px] lg:text-[44px]">Gold Alloy Composition</h2>
         <p className="mt-3 max-w-[700px] text-[15px] leading-[24px] text-ink-70">
           Pure 24KT gold is too soft for jewellery. It is alloyed with other metals to achieve the right balance of colour, strength and workability.
         </p>
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-6 grid grid-cols-1 gap-3 sm:mt-10 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
           {alloyComposition.map((a) => (
-            <div key={a.metal} className="rounded-2xl border border-purple-20 bg-white p-6">
+            <div key={a.metal} className="rounded-2xl border border-purple-20 bg-white p-4 sm:p-6">
               <h3 className="text-[16px] font-bold text-ink">{a.metal}</h3>
               <p className="mt-2 text-[13px] leading-[20px] text-ink-70">{a.role}</p>
             </div>
@@ -151,12 +151,12 @@ export default function MetalEducationPage() {
       </section>
 
       {/* Care */}
-      <section className="mx-auto w-[calc(100%-27px)] max-w-[1415px] rounded-[38px] bg-purple-10 px-[72px] py-16">
+      <section className="mx-auto w-[calc(100%-27px)] max-w-[1415px] rounded-[20px] bg-purple-10 px-5 py-8 sm:rounded-[38px] sm:px-10 sm:py-12 lg:px-[72px] lg:py-16">
         <p className="text-[11px] font-semibold tracking-[1.5px] text-purple uppercase">Keep It Beautiful</p>
-        <h2 className="mt-2 font-seasons text-[36px] leading-[1.1] font-bold tracking-[-0.8px] text-ink sm:text-[44px]">Durability &amp; Care</h2>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <h2 className="mt-2 font-seasons text-[26px] leading-[1.1] font-bold tracking-[-0.8px] text-ink sm:text-[36px] lg:text-[44px]">Durability &amp; Care</h2>
+        <div className="mt-6 grid grid-cols-1 gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
           {metalCare.map((c) => (
-            <div key={c.title} className="rounded-2xl border border-purple-20 bg-white p-6">
+            <div key={c.title} className="rounded-2xl border border-purple-20 bg-white p-4 sm:p-6">
               <h3 className="text-[16px] font-bold text-ink">{c.title}</h3>
               <p className="mt-2 text-[13px] leading-[20px] text-ink-70">{c.description}</p>
             </div>
@@ -165,11 +165,11 @@ export default function MetalEducationPage() {
       </section>
 
       {/* Decision Guide */}
-      <section className="page-x py-20">
-        <div className="rounded-2xl border border-purple-20 bg-white p-10 lg:p-12">
+      <section className="page-x py-10 sm:py-16 lg:py-20">
+        <div className="rounded-2xl border border-purple-20 bg-white p-6 sm:p-10 lg:p-12">
           <p className="text-[11px] font-semibold tracking-[1.5px] text-purple uppercase">Your Choice</p>
-          <h2 className="mt-2 font-seasons text-[30px] leading-[1.1] font-bold tracking-[-0.5px] text-ink sm:text-[36px]">Which Metal Is Right for You?</h2>
-          <div className="mt-6 grid gap-6 lg:grid-cols-3">
+          <h2 className="mt-2 font-seasons text-[24px] leading-[1.1] font-bold tracking-[-0.5px] text-ink sm:text-[30px] lg:text-[36px]">Which Metal Is Right for You?</h2>
+          <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
             <div>
               <h3 className="text-[15px] font-bold text-ink">For the Active Lifestyle</h3>
               <p className="mt-2 text-[14px] leading-[22px] text-ink-70">Choose 9KT or 14KT in yellow or rose gold. Lower karats are harder and resist scratches better — perfect if you wear your jewellery every day.</p>
@@ -186,7 +186,7 @@ export default function MetalEducationPage() {
         </div>
       </section>
 
-      <div className="pb-16">
+      <div className="pb-10 sm:pb-16">
         <TrustStrip variant="light" />
       </div>
     </main>

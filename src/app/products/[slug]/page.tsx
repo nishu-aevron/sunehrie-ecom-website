@@ -34,7 +34,7 @@ export default async function ProductPage({ params }: PageProps<"/products/[slug
   const similar = catalog.filter((p) => p.slug !== product.slug && (p.category === product.category || p.diamondCt >= 0.4)).slice(0, 8);
 
   return (
-    <main className="bg-white pb-[77px]">
+    <main className="bg-white pb-10 lg:pb-[77px]">
       <div className="page-x lg:px-[53px]">
         <nav aria-label="Breadcrumb" className="flex items-center gap-1 pt-[31px] text-ink lg:pl-2.5">
           <Link href="/" className="text-[12px] leading-5 hover:underline">
@@ -59,7 +59,7 @@ export default async function ProductPage({ params }: PageProps<"/products/[slug
           </div>
         </div>
 
-        <section className="relative mt-[30px] flex flex-col gap-4 overflow-hidden rounded-3xl bg-blush px-[25px] py-[15px] md:flex-row md:items-center">
+        <section className="relative mt-6 flex flex-col gap-4 overflow-hidden rounded-2xl bg-blush px-4 py-3 sm:mt-[30px] sm:rounded-3xl sm:px-[25px] sm:py-[15px] md:flex-row md:items-center">
           <span className="pointer-events-none absolute top-[22px] left-[-140px] size-[129px] rounded-full bg-purple blur-[105px]" aria-hidden />
           <span className="pointer-events-none absolute top-[22px] right-[-125px] size-[129px] rounded-full bg-purple blur-[105px]" aria-hidden />
           {assurances.map((a) => (
@@ -81,15 +81,15 @@ export default async function ProductPage({ params }: PageProps<"/products/[slug
         </section>
       </div>
 
-      <div className="mt-[111px]">
+      <div className="mt-12 lg:mt-[111px]">
         <Reviews product={product} />
       </div>
 
-      <div className="mt-[52px]">
+      <div className="mt-8 lg:mt-[52px]">
         <TrustStrip pill={false} />
       </div>
 
-      <div className="mt-[69px]">
+      <div className="mt-10 lg:mt-[69px]">
         <RelatedProducts eyebrow="You May Also Like" title="Similar Pieces" products={similar} />
       </div>
     </main>

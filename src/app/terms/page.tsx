@@ -16,7 +16,7 @@ export default function TermsPage() {
           <span className="font-inter text-[14px] leading-5">/</span>
           <span className="text-[12px] leading-5">Terms &amp; Conditions</span>
         </nav>
-        <h1 className="mt-[28px] font-seasons text-[44px] leading-[1.1] font-bold tracking-[-1px] text-ink sm:text-[52px]">
+        <h1 className="mt-[28px] font-seasons text-[32px] leading-[1.1] font-bold tracking-[-1px] text-ink sm:text-[44px] lg:text-[52px]">
           Terms &amp; Conditions
         </h1>
         <p className="mt-3 text-[15px] leading-[24px] text-ink-50">Last updated: 1 October 2026</p>
@@ -174,7 +174,7 @@ export default function TermsPage() {
         </div>
       </section>
 
-      <div className="mt-16 pb-16">
+      <div className="mt-10 pb-10 sm:mt-16 sm:pb-16">
         <TrustStrip variant="light" />
       </div>
     </main>

@@ -24,7 +24,7 @@ export default function WishlistPage() {
 
         <div className="mt-10 flex flex-col gap-2.5 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h1 className="font-seasons text-[44px] leading-[57px] font-bold tracking-[-1.6px] text-purple">
+            <h1 className="font-seasons text-[32px] leading-[1.1] font-bold tracking-[-1.6px] text-purple sm:text-[44px] sm:leading-[57px]">
               My Wishlist
             </h1>
             <p className="mt-2.5 text-[15px] leading-[21px] text-ink-50">
@@ -63,8 +63,8 @@ export default function WishlistPage() {
         </section>
       ) : (
         <section className="page-x pb-12 lg:px-[50px]">
-          <div className="mb-3 flex items-center justify-between">
-            <h2 className="font-seasons text-[28px] font-bold tracking-[-0.8px] text-purple">
+          <div className="mb-3 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <h2 className="font-seasons text-[24px] font-bold tracking-[-0.8px] text-purple sm:text-[28px]">
               Saved Pieces <span className="text-ink-50 font-manrope text-[16px] font-normal">({wishlist.length})</span>
             </h2>
             <div className="flex items-center gap-4">
@@ -78,11 +78,11 @@ export default function WishlistPage() {
                   <path d="M3.5 8.5h10m0 0L9 4m4.5 4.5L9 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>
-              <span className="text-[13px] text-ink-50">Sort: Recently added</span>
+              <span className="hidden text-[13px] text-ink-50 sm:inline">Sort: Recently added</span>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 gap-x-[14.5px] gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-x-2.5 gap-y-6 sm:gap-x-[14.5px] sm:gap-y-8 lg:grid-cols-4">
             {wishlist.map((product) => (
               <div key={product.slug} className="flex flex-col">
                 <ProductCard product={product} />
@@ -119,7 +119,7 @@ export default function WishlistPage() {
       )}
 
       {/* Personal Assistance */}
-      <section className="mx-auto my-12 flex w-[calc(100%-27px)] max-w-[1415px] flex-col items-center justify-between gap-6 rounded-[38px] bg-purple-10 px-8 py-12 sm:flex-row sm:px-[72px] sm:py-12">
+      <section className="mx-auto my-8 flex w-[calc(100%-27px)] max-w-[1415px] flex-col items-center justify-between gap-6 rounded-[20px] bg-purple-10 px-5 py-8 text-center sm:my-12 sm:flex-row sm:rounded-[38px] sm:px-[72px] sm:py-12 sm:text-left">
         <div>
           <h2 className="font-seasons text-[28px] font-bold tracking-[-0.8px] text-purple">
             Need Personal Assistance?

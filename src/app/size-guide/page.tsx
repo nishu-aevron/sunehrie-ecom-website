@@ -81,16 +81,16 @@ export default function SizeGuidePage() {
           <span className="font-inter text-[14px] leading-5">/</span>
           <span className="text-[12px] leading-5">Size Guide</span>
         </nav>
-        <h1 className="mt-[28px] font-seasons text-[44px] leading-[1.1] font-bold tracking-[-1px] text-ink sm:text-[52px]">Size Guide</h1>
+        <h1 className="mt-[28px] font-seasons text-[32px] leading-[1.1] font-bold tracking-[-1px] text-ink sm:text-[44px] lg:text-[52px]">Size Guide</h1>
         <p className="mt-3 max-w-[800px] text-[15px] leading-[24px] text-ink-70">
           The perfect fit is the difference between jewellery you wear every day and jewellery that stays in the drawer. Use our guides to find yours.
         </p>
       </section>
 
       {/* Ring Size Chart */}
-      <section className="mx-auto w-[calc(100%-27px)] max-w-[1415px] rounded-[38px] bg-purple-10 px-[72px] py-16">
+      <section className="mx-auto w-[calc(100%-27px)] max-w-[1415px] rounded-[20px] bg-purple-10 px-5 py-10 sm:rounded-[38px] sm:px-[72px] sm:py-16">
         <p className="text-[11px] font-semibold tracking-[1.5px] text-purple uppercase">Rings</p>
-        <h2 className="mt-2 font-seasons text-[36px] leading-[1.1] font-bold tracking-[-0.8px] text-ink sm:text-[44px]">Ring Size Chart</h2>
+        <h2 className="mt-2 font-seasons text-[28px] leading-[1.1] font-bold tracking-[-0.8px] text-ink sm:text-[36px] lg:text-[44px]">Ring Size Chart</h2>
         <p className="mt-3 max-w-[600px] text-[13px] leading-[20px] text-ink-50">All measurements in millimetres. Sunehrie uses the Indian sizing system by default.</p>
         <div className="mt-8 overflow-x-auto">
           <table className="w-full min-w-[600px] border-collapse">
@@ -119,8 +119,8 @@ export default function SizeGuidePage() {
       {/* How to Measure */}
       <section className="page-x py-20">
         <p className="text-[11px] font-semibold tracking-[1.5px] text-purple uppercase">At Home</p>
-        <h2 className="mt-2 font-seasons text-[36px] leading-[1.1] font-bold tracking-[-0.8px] text-ink sm:text-[44px]">How to Measure Your Ring Size</h2>
-        <div className="mt-10 grid gap-8 lg:grid-cols-2">
+        <h2 className="mt-2 font-seasons text-[28px] leading-[1.1] font-bold tracking-[-0.8px] text-ink sm:text-[36px] lg:text-[44px]">How to Measure Your Ring Size</h2>
+        <div className="mt-6 grid gap-6 sm:mt-10 sm:gap-8 lg:grid-cols-2">
           {measuringMethods.map((m) => (
             <div key={m.title} className="rounded-2xl border border-purple-20 bg-white p-8">
               <h3 className="font-seasons text-[22px] leading-[1.2] font-bold tracking-[-0.3px] text-ink">{m.title}</h3>

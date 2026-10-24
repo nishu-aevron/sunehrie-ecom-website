@@ -29,8 +29,8 @@ export default function SiteFooter() {
       <div className="relative z-10 mx-auto flex max-w-[1440px] flex-col justify-center px-4 sm:px-6 lg:min-h-[597px] lg:px-[50px]">
         <div className="flex flex-col lg:h-[401px] lg:flex-row lg:items-start">
           {/* Brand */}
-          <div className="flex shrink-0 flex-col items-start gap-5 border-[#58483d] pt-[5px] pb-12 lg:w-[365px] lg:border-r lg:pr-8">
-            <Link href="/" aria-label="Sunehriè home" className="flex h-[172px] w-[250px] flex-col items-center gap-[9px] p-2.5">
+          <div className="flex shrink-0 flex-col items-start gap-5 border-[#58483d] pt-[5px] pb-8 max-sm:items-center max-sm:text-center lg:w-[365px] lg:border-r lg:pr-8 lg:pb-12">
+            <Link href="/" aria-label="Sunehriè home" className="flex h-auto w-[200px] flex-col items-center gap-[9px] p-2.5 sm:h-[172px] sm:w-[250px]">
               <Icon src="/icons/footer/logo-bird.svg" size={[37.14, 88.35]} />
               <Icon src="/icons/footer/logo-wordmark.svg" size={[221.21, 47.95]} />
             </Link>
@@ -38,7 +38,7 @@ export default function SiteFooter() {
               Sunehriè by Shreenathji Jewellers — two generations of trust from Godhra &amp; Lunawada, now crafted for the modern
               wearer. Real 9KT/14KT/18KT gold and 100% natural, IGI-certified diamonds with transparent pricing.
             </p>
-            <ul className="flex flex-wrap items-center gap-2">
+            <ul className="flex flex-wrap items-center gap-2 max-sm:justify-center">
               {socials.map((s) => (
                 <li key={s.label}>
                   <a
@@ -133,10 +133,10 @@ export default function SiteFooter() {
           </div>
         </div>
 
-        <div className="border-t border-[#58483d] pt-[30px] pb-[20.8px] lg:px-[52.8px]">
-          <div className="flex flex-wrap items-center justify-between gap-y-2">
+        <div className="border-t border-[#58483d] pt-[20px] pb-[16px] max-sm:text-center sm:pt-[30px] sm:pb-[20.8px] lg:px-[52.8px]">
+          <div className="flex flex-wrap items-center justify-between gap-y-3 max-sm:flex-col max-sm:gap-4">
             <p className={small}>© 2026 Sunehriè by Shreenathji Jewellers. All rights reserved.</p>
-            <ul className="flex flex-wrap gap-[15px]">
+            <ul className="flex flex-wrap gap-[15px] max-sm:justify-center">
               {policies.map((p) => (
                 <li key={p}>
                   <Link href="/#" className={`${small} whitespace-nowrap transition-colors hover:text-gold`}>

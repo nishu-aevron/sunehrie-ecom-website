@@ -63,7 +63,7 @@ export default function PurchasePanel({ product }: { product: Product }) {
   return (
     <div className="flex flex-col gap-[23px]">
       <span className="w-fit rounded-full bg-[#f8f8f8] px-2.5 py-[5px] text-[12px] leading-[18px] font-medium text-[#121212]">{product.name}</span>
-      <h1 className="font-seasons text-[36px] leading-none font-bold tracking-[-0.45px] text-black sm:text-[45px]">{product.name}</h1>
+      <h1 className="font-seasons text-[28px] leading-none font-bold tracking-[-0.45px] text-black sm:text-[36px] lg:text-[45px]">{product.name}</h1>
       <p className="text-[16px] leading-6 font-medium text-[#121212]">
         SKU {product.sku} · {product.category}
       </p>
@@ -239,8 +239,8 @@ export default function PurchasePanel({ product }: { product: Product }) {
         </form>
       </div>
 
-      <div className="flex items-center gap-[15px] py-[15px]">
-        <div className="flex h-[57px] w-36 shrink-0 items-center justify-between rounded-full border border-purple-20 bg-white px-[11px]" role="group" aria-label="Quantity">
+      <div className="flex items-center gap-3 py-[15px] max-sm:flex-col sm:gap-[15px]">
+        <div className="flex h-[50px] w-full shrink-0 items-center justify-between rounded-full border border-purple-20 bg-white px-[11px] sm:h-[57px] sm:w-36" role="group" aria-label="Quantity">
           <button type="button" onClick={() => setQty((q) => Math.max(1, q - 1))} aria-label="Decrease quantity" className="cursor-pointer">
             <Icon src="/icons/pdp/minus.svg" size={25} />
           </button>
@@ -255,13 +255,13 @@ export default function PurchasePanel({ product }: { product: Product }) {
           type="button"
           onClick={add}
           disabled={!product.inStock}
-          className="h-[59px] flex-1 cursor-pointer rounded-full border border-purple-50 bg-purple text-[14px] leading-[21px] font-medium text-blush transition-colors hover:bg-purple-deep disabled:cursor-not-allowed disabled:opacity-50"
+          className="h-[50px] w-full cursor-pointer rounded-full border border-purple-50 bg-purple text-[14px] leading-[21px] font-medium text-blush transition-colors hover:bg-purple-deep disabled:cursor-not-allowed disabled:opacity-50 sm:h-[59px] sm:flex-1"
         >
           {product.inStock ? "Add to cart" : "Out of stock"}
         </button>
       </div>
 
-      <div className="flex flex-wrap items-center gap-x-[29px] gap-y-3 text-[14px] leading-[14px] font-medium tracking-[-0.24px] text-purple">
+      <div className="grid grid-cols-2 gap-3 text-[14px] leading-[14px] font-medium tracking-[-0.24px] text-purple sm:flex sm:flex-wrap sm:gap-x-[29px]">
         <button type="button" onClick={share} className="flex cursor-pointer items-center gap-[7px] hover:underline">
           <Icon src="/icons/pdp/share.svg" size={15} />
           Share
