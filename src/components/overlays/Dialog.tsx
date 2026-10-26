@@ -17,7 +17,7 @@ export default function Dialog({ label, onClose, children, className = "", place
 
   useEffect(() => {
     const previous = document.activeElement as HTMLElement | null;
-    panel.current?.focus();
+    panel.current?.focus({ preventScroll: true });
     const { overflow } = document.body.style;
     document.body.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();

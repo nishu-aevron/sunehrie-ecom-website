@@ -171,14 +171,6 @@ function QuickView({ product }: { product: Product }) {
           </button>
         </div>
 
-        <button
-          type="button"
-          onClick={closeModal}
-          aria-label="Close"
-          className="absolute top-0 right-0 flex size-9 cursor-pointer items-center justify-center rounded-[50px] border border-black/20 bg-white p-[5px] backdrop-blur-[2px] transition-transform hover:scale-105"
-        >
-          <Icon src="/icons/modal/close-24.svg" size={24} />
-        </button>
       </div>
     </div>
   );
@@ -188,7 +180,18 @@ export default function QuickViewModal() {
   const { closeModal, quickView } = useShop();
   if (!quickView) return null;
   return (
-    <Dialog label={`Quick view: ${quickView.name}`} onClose={closeModal} className="w-[1107px] max-w-full rounded-3xl bg-white p-5">
+    <Dialog label={`Quick view: ${quickView.name}`} onClose={closeModal} className="w-[1107px] max-w-full rounded-3xl bg-white p-5 pt-14 md:pt-5">
+      {/* Sits in its own strip above the image on mobile (and stays in view while the sheet scrolls), and in the panel corner on larger screens. */}
+      <div className="sticky top-1 z-10 -mt-12 mb-3 flex justify-end md:absolute md:top-5 md:right-5 md:m-0">
+        <button
+          type="button"
+          onClick={closeModal}
+          aria-label="Close"
+          className="flex size-9 cursor-pointer items-center justify-center rounded-[50px] border border-black/20 bg-white p-[5px] shadow-sm transition-transform hover:scale-105"
+        >
+          <Icon src="/icons/modal/close-24.svg" size={24} />
+        </button>
+      </div>
       <QuickView key={quickView.slug} product={quickView} />
     </Dialog>
   );
