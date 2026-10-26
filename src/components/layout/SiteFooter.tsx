@@ -5,7 +5,16 @@ import Icon from "@/components/ui/Icon";
 const small = "text-[11.4px] leading-[16.8px] tracking-[0.24px] text-cream";
 const heading = "font-seasons text-[22px] leading-[22px] font-bold tracking-[-0.44px] text-cream";
 
-const knowUs = ["Sunehriè Promise", "Store Experience", "Jewelry Education", "48-Hour Return & Exchange", "Buyback Guarantee", "Size Guide"];
+const knowUs = [
+  { label: "Sunehriè Promise", href: "/about" },
+  { label: "Store Experience", href: "/contact" },
+  { label: "Jewelry Education", href: "/knowledge-hub" },
+  { label: "Customize Jewellery", href: "/customize" },
+  { label: "48-Hour Return & Exchange", href: "/refund-exchange" },
+  { label: "Buyback Guarantee", href: "/faq" },
+  { label: "Size Guide", href: "/size-guide" },
+  { label: "Blog", href: "/blog" },
+];
 const shop = [
   { label: "9KT Gold", href: "/collections?purity=9KT" },
   { label: "14KT Gold", href: "/collections?purity=14KT" },
@@ -21,7 +30,12 @@ const socials = [
   { label: "Instagram", icon: "social-instagram", href: "https://instagram.com" },
 ];
 const payments = ["pay-visa", "pay-mastercard", "pay-amex", "pay-paypal"];
-const policies = ["Return Policy", "Privacy Policy", "Terms of Service", "Shipping Policy"];
+const policies = [
+  { label: "Return Policy", href: "/refund-exchange" },
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Terms of Service", href: "/terms" },
+  { label: "Shipping Policy", href: "/faq" },
+];
 
 export default function SiteFooter() {
   return (
@@ -29,8 +43,8 @@ export default function SiteFooter() {
       <div className="relative z-10 mx-auto flex max-w-[1440px] flex-col justify-center px-4 sm:px-6 lg:min-h-[597px] lg:px-[50px]">
         <div className="flex flex-col lg:h-[401px] lg:flex-row lg:items-start">
           {/* Brand */}
-          <div className="flex shrink-0 flex-col items-start gap-5 border-[#58483d] pt-[5px] pb-12 lg:w-[365px] lg:border-r lg:pr-8">
-            <Link href="/" aria-label="Sunehriè home" className="flex h-[172px] w-[250px] flex-col items-center gap-[9px] p-2.5">
+          <div className="flex shrink-0 flex-col items-start gap-5 border-[#58483d] pt-[5px] pb-8 max-sm:items-center max-sm:text-center lg:w-[365px] lg:border-r lg:pr-8 lg:pb-12">
+            <Link href="/" aria-label="Sunehriè home" className="flex h-auto w-[200px] flex-col items-center gap-[9px] p-2.5 sm:h-[172px] sm:w-[250px]">
               <Icon src="/icons/footer/logo-bird.svg" size={[37.14, 88.35]} />
               <Icon src="/icons/footer/logo-wordmark.svg" size={[221.21, 47.95]} />
             </Link>
@@ -38,7 +52,7 @@ export default function SiteFooter() {
               Sunehriè by Shreenathji Jewellers — two generations of trust from Godhra &amp; Lunawada, now crafted for the modern
               wearer. Real 9KT/14KT/18KT gold and 100% natural, IGI-certified diamonds with transparent pricing.
             </p>
-            <ul className="flex flex-wrap items-center gap-2">
+            <ul className="flex flex-wrap items-center gap-2 max-sm:justify-center">
               {socials.map((s) => (
                 <li key={s.label}>
                   <a
@@ -61,9 +75,9 @@ export default function SiteFooter() {
               <h4 className={heading}>Know Us</h4>
               <ul className="mt-[28.79px] flex flex-col gap-2">
                 {knowUs.map((l) => (
-                  <li key={l}>
-                    <Link href="/#" className={`${small} transition-colors hover:text-gold`}>
-                      {l}
+                  <li key={l.label}>
+                    <Link href={l.href} className={`${small} transition-colors hover:text-gold`}>
+                      {l.label}
                     </Link>
                   </li>
                 ))}
@@ -133,14 +147,14 @@ export default function SiteFooter() {
           </div>
         </div>
 
-        <div className="border-t border-[#58483d] pt-[30px] pb-[20.8px] lg:px-[52.8px]">
-          <div className="flex flex-wrap items-center justify-between gap-y-2">
+        <div className="border-t border-[#58483d] pt-[20px] pb-[16px] max-sm:text-center sm:pt-[30px] sm:pb-[20.8px] lg:px-[52.8px]">
+          <div className="flex flex-wrap items-center justify-between gap-y-3 max-sm:flex-col max-sm:gap-4">
             <p className={small}>© 2026 Sunehriè by Shreenathji Jewellers. All rights reserved.</p>
-            <ul className="flex flex-wrap gap-[15px]">
+            <ul className="flex flex-wrap gap-[15px] max-sm:justify-center">
               {policies.map((p) => (
-                <li key={p}>
-                  <Link href="/#" className={`${small} whitespace-nowrap transition-colors hover:text-gold`}>
-                    {p}
+                <li key={p.label}>
+                  <Link href={p.href} className={`${small} whitespace-nowrap transition-colors hover:text-gold`}>
+                    {p.label}
                   </Link>
                 </li>
               ))}

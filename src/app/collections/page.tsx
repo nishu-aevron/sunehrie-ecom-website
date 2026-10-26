@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 
 export default function CollectionsPage() {
   return (
-    <main className="bg-white pb-[166px]">
-      <section className="relative h-[299px] overflow-hidden">
+    <main className="bg-white pb-16 lg:pb-[166px]">
+      <section className="relative h-[200px] overflow-hidden sm:h-[250px] lg:h-[299px]">
         <div className="absolute top-0 left-[-10px] h-[684px] w-[calc(100%+19px)]">
           <Image src="/img/home/hero-portrait.png" alt="" fill priority sizes="100vw" className="object-cover" />
           <div className="absolute inset-0 opacity-80" style={{ background: "linear-gradient(180deg, #000 0%, rgba(0,0,0,0) 100%)" }} />
@@ -28,7 +28,7 @@ export default function CollectionsPage() {
               <span className="font-inter text-[14px] leading-5">/</span>
               <span className="text-[12px] leading-5">All Collection</span>
             </nav>
-            <h1 className="font-seasons text-[44px] leading-none tracking-[-1.6px] text-white sm:text-[60px]">The Collection</h1>
+            <h1 className="font-seasons text-[32px] leading-none tracking-[-1.6px] text-white sm:text-[44px] lg:text-[60px]">The Collection</h1>
             <p className="font-inter text-[15px] leading-[22.4px] tracking-[0.24px] text-white">
               Handpicked across karats and budgets updated by our stylists every week.
             </p>
@@ -40,7 +40,7 @@ export default function CollectionsPage() {
         <CollectionView />
       </Suspense>
 
-      <div className="mt-[166px]">
+      <div className="mt-16 lg:mt-[166px]">
         <RelatedProducts title="You Might Also Like" products={catalog.slice(1, 9)} />
       </div>
     </main>

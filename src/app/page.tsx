@@ -7,10 +7,10 @@ import TrustStrip from "@/components/TrustStrip";
 
 export default function Home() {
   return (
-    <main className="bg-white pb-[83px]">
+    <main className="bg-white pb-10 sm:pb-[83px]">
       <HeroCarousel />
       <GoldTicker />
-      <div className="mt-[21px] flex flex-col gap-[23px]">
+      <div className="mt-3 flex flex-col gap-3 sm:mt-[21px] sm:gap-[23px]">
         <FineGold />
         <BestSellers />
         <ExploreCategories />

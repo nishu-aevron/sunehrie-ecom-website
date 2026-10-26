@@ -26,8 +26,8 @@ export default function SignInPage() {
   };
 
   return (
-    <main className="flex min-h-[calc(100vh-80px)] items-center justify-center bg-blush px-4 py-10 sm:py-16">
-      <div className="flex w-full max-w-[1080px] overflow-hidden rounded-[32px] shadow-[0_12px_40px_rgba(43,13,62,0.12)]">
+    <main className="flex min-h-[calc(100vh-80px)] items-center justify-center bg-blush px-4 py-8 sm:py-16">
+      <div className="flex w-full max-w-[1080px] overflow-hidden rounded-[20px] shadow-[0_12px_40px_rgba(43,13,62,0.12)] sm:rounded-[32px]">
         {/* Left brand panel */}
         <div className="hidden w-[440px] shrink-0 flex-col justify-between bg-ink p-10 lg:flex">
           <div>
@@ -60,7 +60,7 @@ export default function SignInPage() {
         </div>
 
         {/* Right form panel */}
-        <div className="flex flex-1 flex-col items-center bg-white px-6 py-10 sm:px-14 sm:py-14">
+        <div className="flex flex-1 flex-col items-center bg-white px-5 py-8 sm:px-14 sm:py-14">
           {/* Tab switcher */}
           <div className="flex h-[48px] w-full max-w-[400px] rounded-full bg-purple-10 p-1">
             <button
@@ -83,7 +83,7 @@ export default function SignInPage() {
             </button>
           </div>
 
-          <h2 className="mt-8 text-center font-seasons text-[28px] leading-[1.2] font-bold tracking-[-0.4px] text-ink sm:text-[32px]">
+          <h2 className="mt-6 text-center font-seasons text-[24px] leading-[1.2] font-bold tracking-[-0.4px] text-ink sm:mt-8 sm:text-[32px]">
             {tab === "signin" ? "Sign in to Sunehriè" : "Create your account"}
           </h2>
           <p className="mt-2 text-center text-[13px] leading-[20px] text-ink-50">

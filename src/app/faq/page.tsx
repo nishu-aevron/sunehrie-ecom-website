@@ -1,145 +1,236 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import TrustStrip from "@/components/TrustStrip";
+import { useMemo, useState } from "react";
+import { Search } from "lucide-react";
+import { useShop } from "@/context/ShopContext";
 
-const categories = ["All", "Orders & Shipping", "Payments", "Returns", "Products", "Account", "Jewellery Care"];
-
-const faqs: { category: string; question: string; answer: string }[] = [
-  { category: "Orders & Shipping", question: "How long does delivery take?", answer: "Standard delivery takes 5–7 business days across India. Metro cities may receive orders in 3–5 days. All shipments are insured and require a signature on delivery." },
-  { category: "Orders & Shipping", question: "How can I track my order?", answer: "Once your order ships, you'll receive a tracking link via SMS and email. You can also track it from your My Account dashboard under 'My Orders'." },
-  { category: "Orders & Shipping", question: "Do you ship internationally?", answer: "Currently, we ship within India only. International shipping is planned for the future — subscribe to our newsletter for updates." },
-  { category: "Orders & Shipping", question: "Is my order insured during delivery?", answer: "Yes. Every order is fully insured from the moment it leaves our facility until you sign for it. Tamper-evident packaging ensures your piece arrives safely." },
-  { category: "Payments", question: "What payment methods do you accept?", answer: "We accept UPI, credit/debit cards (Visa, Mastercard, Amex), net banking, and EMI options through select banks. Cash on delivery is not available for jewellery orders." },
-  { category: "Payments", question: "Do you offer EMI?", answer: "Yes, EMI is available on select credit cards for orders above ₹10,000. EMI options are shown at checkout based on your card issuer." },
-  { category: "Payments", question: "Is my payment information secure?", answer: "All transactions are processed through PCI-DSS compliant payment gateways. We never store your card details on our servers." },
-  { category: "Returns", question: "What is your return policy?", answer: "We offer a 48-hour return and exchange window from the date of delivery. The piece must be in its original condition with all tags, certificates, and packaging intact." },
-  { category: "Returns", question: "How do I initiate a return?", answer: "Contact us at sunehrie.care@gmail.com or call +91 93273 31963 within 48 hours of delivery. Our team will arrange a secure pickup at no extra cost." },
-  { category: "Returns", question: "Can I exchange for a different design?", answer: "Yes, you can exchange for any piece of equal or greater value. If the new piece costs more, you pay the difference; if less, we issue a store credit." },
-  { category: "Products", question: "Are your diamonds natural?", answer: "Yes, every diamond in our collection is 100% natural and IGI-certified. We do not use lab-grown or simulated diamonds in any of our jewellery." },
-  { category: "Products", question: "What does BIS Hallmark mean?", answer: "BIS Hallmark is a certification by the Bureau of Indian Standards confirming the purity of gold. Each hallmarked piece carries a unique HUID (Hallmark Unique Identification) number that can be verified online." },
-  { category: "Products", question: "What gold purities do you offer?", answer: "We offer jewellery in 9KT (37.5% gold), 14KT (58.5% gold), and 18KT (75% gold). 9KT is our most accessible option — real gold at an approachable price point." },
-  { category: "Account", question: "How do I create an account?", answer: "Click on the user icon in the header and select 'Sign Up'. You can register with your email or phone number. An account lets you track orders, save wishlist items, and manage your addresses." },
-  { category: "Account", question: "I forgot my password. How do I reset it?", answer: "On the sign-in page, click 'Forgot Password'. Enter your registered email or phone number, and we'll send you a reset link valid for 24 hours." },
-  { category: "Jewellery Care", question: "How should I store my jewellery?", answer: "Store each piece separately in the pouch or box provided to prevent scratching. Keep away from perfumes, lotions, and moisture. Gold and diamond pieces can be gently cleaned with a soft cloth." },
-  { category: "Jewellery Care", question: "Can I wear my jewellery in the shower?", answer: "We recommend removing jewellery before showering, swimming, or exercising. Prolonged exposure to water, soap, and chemicals can dull the finish over time." },
+const groups: { topic: string; id: string; faqs: { q: string; a: string }[] }[] = [
+  {
+    topic: "Orders & Delivery",
+    id: "orders",
+    faqs: [
+      {
+        q: "How long does delivery take?",
+        a: "Most ready-to-ship pieces arrive in 3–5 working days. Made-to-order and resized pieces take 10–14 days. Every order is fully insured and needs a signature on delivery.",
+      },
+      {
+        q: "Can I collect my order from a store?",
+        a: "Yes. Choose store pickup at checkout and collect your order from our Godhra or Lunawada showroom once you receive the ready-for-pickup message. Please carry a photo ID.",
+      },
+      {
+        q: "How do I track my order?",
+        a: "We send tracking updates by SMS and email as soon as your order ships. You can also follow every step from Orders & Shipments in My Account.",
+      },
+    ],
+  },
+  {
+    topic: "Returns & Exchange",
+    id: "returns",
+    faqs: [
+      {
+        q: "What is the return window?",
+        a: "You can return or exchange an eligible piece within 48 hours of delivery, in its original, unworn condition with all certificates and packaging.",
+      },
+      {
+        q: "Which pieces cannot be returned?",
+        a: "Customised, engraved, resized and made-to-order pieces, as well as gold coins, cannot be returned. They can still be covered by our exchange and buy-back policy.",
+      },
+      {
+        q: "How are refunds issued?",
+        a: "Once your return passes our quality check, the refund goes back to your original payment method within 5–7 working days.",
+      },
+    ],
+  },
+  {
+    topic: "Gold & Diamonds",
+    id: "gold-diamonds",
+    faqs: [
+      {
+        q: "What do 9KT, 14KT and 18KT mean?",
+        a: "Karat tells you how much of the metal is pure gold: 9KT is about 37.5%, 14KT about 58.5% and 18KT about 75%. Lower karats are stronger for daily wear; higher karats have a richer colour.",
+      },
+      {
+        q: "Are your diamonds natural and certified?",
+        a: "Yes. We use only natural diamonds — never lab-grown or simulated — and certified stones come with IGI documentation you can verify online.",
+      },
+      {
+        q: "Is your gold hallmarked?",
+        a: "Every piece of Sunehriè gold jewellery is BIS hallmarked and carries a unique HUID number, which you can check on the BIS CARE app.",
+      },
+    ],
+  },
+  {
+    topic: "Payments",
+    id: "payments",
+    faqs: [
+      {
+        q: "Which payment methods do you accept?",
+        a: "We accept UPI, credit and debit cards, net banking and EMI on select cards. All payments go through secure, PCI-DSS compliant gateways.",
+      },
+      {
+        q: "Are prices inclusive of tax?",
+        a: "Yes. All prices shown include GST, and every product page shows a full price breakup of gold, diamonds, making charges and tax.",
+      },
+    ],
+  },
+  {
+    topic: "Care & Resizing",
+    id: "care",
+    faqs: [
+      {
+        q: "Can a ring be resized?",
+        a: "Most rings can be resized by up to two sizes. Your first resize within six months is complimentary; it usually takes 10–14 days.",
+      },
+      {
+        q: "How should I care for my jewellery?",
+        a: "Store each piece separately in its pouch, keep it away from perfume and lotions, and clean gently with warm soapy water and a soft brush. Visit us once a year for a free check of prongs and clasps.",
+      },
+    ],
+  },
 ];
 
 export default function FaqPage() {
-  const [active, setActive] = useState("All");
-  const [search, setSearch] = useState("");
-  const [openIdx, setOpenIdx] = useState<number | null>(null);
+  const { openModal } = useShop();
+  const [query, setQuery] = useState("");
+  const [activeTopic, setActiveTopic] = useState(groups[0].id);
+  // The first answer in each group starts open, as in the design.
+  const [open, setOpen] = useState<Set<string>>(() => new Set(groups.map((g) => `${g.id}-0`)));
 
-  const filtered = faqs.filter((faq) => {
-    const matchCategory = active === "All" || faq.category === active;
-    const matchSearch = !search || faq.question.toLowerCase().includes(search.toLowerCase()) || faq.answer.toLowerCase().includes(search.toLowerCase());
-    return matchCategory && matchSearch;
-  });
+  const visible = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return groups;
+    return groups.map((g) => ({ ...g, faqs: g.faqs.filter((f) => `${f.q} ${f.a}`.toLowerCase().includes(q)) })).filter((g) => g.faqs.length);
+  }, [query]);
+
+  const toggle = (key: string) =>
+    setOpen((prev) => {
+      const next = new Set(prev);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      return next;
+    });
+
+  const goToTopic = (id: string) => {
+    setActiveTopic(id);
+    document.getElementById(`faq-${id}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   return (
     <main className="bg-white">
-      {/* Header */}
-      <section className="page-x relative pt-[30px] pb-[40px]">
-        <svg className="pointer-events-none absolute top-[-6px] right-0 h-[312px] w-[134px] text-purple-10" viewBox="0 0 134 312" fill="currentColor" aria-hidden>
-          <ellipse cx="134" cy="156" rx="134" ry="156" />
-        </svg>
-        <nav aria-label="Breadcrumb" className="relative flex items-center gap-1 text-ink-50 text-[12px] leading-5">
-          <Link href="/" className="hover:text-purple hover:underline">Home</Link>
-          <span className="font-inter text-[14px]">/</span>
-          <span className="text-ink">FAQ</span>
-        </nav>
-        <div className="relative mt-[38px] flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <h1 className="font-seasons text-[44px] leading-[1.1] font-bold tracking-[-1.6px] text-ink sm:text-[52px]">Frequently Asked Questions</h1>
-            <p className="mt-[12px] text-[15px] leading-[24px] tracking-[0.24px] text-ink-70">
-              Find answers to common questions about orders, payments, returns, and our jewellery.
-            </p>
-          </div>
-          <div className="relative w-full shrink-0 sm:w-[300px]">
-            <svg className="pointer-events-none absolute top-1/2 left-[16px] size-[17px] -translate-y-1/2 text-ink-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-            </svg>
-            <input type="text" placeholder="Search questions…" value={search} onChange={(e) => setSearch(e.target.value)} className="w-full rounded-xl border border-purple-20 bg-white py-[12px] pr-4 pl-[45px] text-[13px] text-ink outline-none transition-colors focus:border-purple" />
-          </div>
+      {/* Hero */}
+      <section className="bg-purple-10">
+        <div className="mx-auto flex w-full max-w-[1440px] flex-col items-start gap-[14px] px-4 py-10 sm:px-8 lg:px-[72px] lg:py-[52px]">
+          <nav aria-label="Breadcrumb" className="text-[13px] leading-[1.45] text-[#6b5b75]">
+            <Link href="/" className="hover:underline">Home</Link>
+            <span className="mx-2">/</span>
+            <span>FAQs</span>
+          </nav>
+          <h1 className="font-seasons text-[38px] leading-[1.12] text-ink sm:text-[48px] lg:text-[60px]">Questions, answered with care.</h1>
+          <p className="max-w-[680px] text-[15px] leading-[1.45] text-[#6b5b75] sm:text-[17px]">
+            Everything you might want to know about orders, returns, gold purity and caring for your jewellery — in one place.
+          </p>
         </div>
       </section>
 
-      {/* Category tabs */}
-      <section className="page-x pb-[16px]">
-        <div className="no-scrollbar flex gap-[10px] overflow-x-auto">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              type="button"
-              onClick={() => { setActive(cat); setOpenIdx(null); }}
-              className={`whitespace-nowrap rounded-full border px-[18px] py-[12px] text-[13px] font-semibold transition-colors ${
-                active === cat ? "border-purple bg-purple text-white" : "border-purple-20 bg-white text-ink hover:border-purple hover:text-purple"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-      </section>
+      <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-10 px-4 pt-8 pb-14 sm:px-8 lg:gap-12 lg:px-[72px] lg:pt-14 lg:pb-[72px]">
+        {/* Search */}
+        <label className="flex items-center gap-2.5 rounded-[30px] border border-[#ebe3f0] bg-white px-5 py-4 focus-within:border-purple">
+          <Search size={18} className="shrink-0 text-[#6b5b75]" aria-hidden />
+          <span className="sr-only">Search our FAQs</span>
+          <input
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search our FAQs…"
+            className="w-full bg-transparent text-[15px] leading-[1.45] text-ink outline-none placeholder:text-ink-50"
+          />
+        </label>
 
-      {/* FAQ list */}
-      <section className="page-x pb-[72px]">
-        <div className="mt-[24px] flex flex-col">
-          {filtered.map((faq, i) => {
-            const isOpen = openIdx === i;
-            return (
-              <div key={faq.question} className="border-b border-purple-20">
-                <button
-                  type="button"
-                  onClick={() => setOpenIdx(isOpen ? null : i)}
-                  className="flex w-full items-center justify-between gap-4 py-[20px] text-left"
-                >
-                  <div className="flex flex-1 flex-col gap-1 sm:flex-row sm:items-center sm:gap-8">
-                    <span className="w-full max-w-[240px] text-[15px] font-semibold text-ink">{faq.question}</span>
-                    {!isOpen && (
-                      <span className="hidden text-[14px] leading-[24px] text-ink-70 sm:block sm:flex-1 truncate">{faq.answer}</span>
-                    )}
-                  </div>
-                  <svg className={`size-5 shrink-0 text-purple transition-transform ${isOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                {isOpen && (
-                  <div className="pb-[20px] text-[14px] leading-[24px] text-ink-70">
-                    {faq.answer}
-                  </div>
-                )}
-              </div>
-            );
-          })}
-          {filtered.length === 0 && (
-            <p className="py-[40px] text-center text-[15px] text-ink-50">No questions match your search. Try a different term.</p>
-          )}
-        </div>
-      </section>
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-12">
+          {/* Topics */}
+          <nav aria-label="FAQ topics" className="w-full shrink-0 rounded-[24px] border border-[#ebe3f0] bg-white p-4 lg:sticky lg:top-6 lg:w-[300px]">
+            <p className="text-[12px] font-bold tracking-[1.2px] text-gold-deep uppercase">Browse by topic</p>
+            <ul className="no-scrollbar mt-1 flex gap-1 overflow-x-auto lg:flex-col">
+              {groups.map((g) => {
+                const active = activeTopic === g.id;
+                return (
+                  <li key={g.id} className="shrink-0">
+                    <button
+                      type="button"
+                      onClick={() => goToTopic(g.id)}
+                      aria-current={active ? "true" : undefined}
+                      className={`flex w-full cursor-pointer items-center gap-2 rounded-[12px] px-[14px] py-3 text-left text-[15px] leading-[1.45] whitespace-nowrap transition-colors ${
+                        active ? "bg-purple-10 font-bold text-purple" : "font-medium text-ink hover:bg-blush-light"
+                      }`}
+                    >
+                      <span className="flex-1">{g.topic}</span>
+                      <span className="text-[12px] font-semibold text-ink-50">{g.faqs.length}</span>
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
 
-      {/* Still have questions */}
-      <section className="mx-auto w-[calc(100%-27px)] max-w-[1415px] rounded-[38px] bg-purple-10 px-[25px] py-[25px] mb-[24px]">
-        <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
-          <div>
-            <h2 className="font-seasons text-[28px] font-bold tracking-[-0.4px] text-ink">Still Have Questions?</h2>
-            <p className="mt-[12px] text-[15px] leading-[24px] tracking-[0.24px] text-ink-70">
-              Our team is here to help — reach out via email at sunehrie.care@gmail.com or call +91 93273 31963.
-            </p>
+          {/* Questions */}
+          <div className="flex min-w-0 flex-1 flex-col gap-10">
+            {visible.length === 0 && (
+              <p className="rounded-[24px] border border-dashed border-[#ebe3f0] p-10 text-center text-[15px] text-[#6b5b75]">
+                No questions match “{query}”. Try another word, or talk to one of our experts below.
+              </p>
+            )}
+            {visible.map((g) => (
+              <section key={g.id} id={`faq-${g.id}`} className="flex scroll-mt-6 flex-col gap-[14px]" aria-labelledby={`faq-h-${g.id}`}>
+                <h2 id={`faq-h-${g.id}`} className="font-seasons text-[28px] leading-[1.12] text-ink sm:text-[34px]">
+                  {g.topic}
+                </h2>
+                {g.faqs.map((f) => {
+                  const key = `${g.id}-${groups.find((x) => x.id === g.id)!.faqs.indexOf(f)}`;
+                  const isOpen = open.has(key) || query.trim() !== "";
+                  return (
+                    <div key={f.q} className="rounded-[24px] border border-[#ebe3f0] bg-white">
+                      <button
+                        type="button"
+                        onClick={() => toggle(key)}
+                        aria-expanded={isOpen}
+                        aria-controls={`faq-a-${key}`}
+                        className="flex w-full cursor-pointer items-center gap-3 p-5 text-left leading-[1.45] sm:p-6"
+                      >
+                        <span className="flex-1 text-[16px] font-semibold text-ink sm:text-[17px]">{f.q}</span>
+                        <span className="w-4 shrink-0 text-center text-[22px] font-bold text-purple" aria-hidden>
+                          {isOpen ? "–" : "+"}
+                        </span>
+                      </button>
+                      <div id={`faq-a-${key}`} hidden={!isOpen} className="-mt-2.5 px-5 pb-5 text-[15px] leading-[1.45] text-[#6b5b75] sm:px-6 sm:pb-6">
+                        {f.a}
+                      </div>
+                    </div>
+                  );
+                })}
+              </section>
+            ))}
           </div>
-          <Link
-            href="/contact"
-            className="inline-flex shrink-0 items-center justify-center rounded-full bg-purple px-8 py-3.5 text-[15px] font-semibold text-white transition-colors hover:bg-purple-deep"
+        </div>
+
+        {/* Still need help */}
+        <section
+          className="flex flex-col items-start gap-5 rounded-[20px] px-5 py-6 sm:px-[22px] md:flex-row md:items-center md:gap-[18px]"
+          style={{ backgroundImage: "linear-gradient(170deg, #2b0d3e 0%, #5b2b75 100%)" }}
+        >
+          <div className="flex flex-1 flex-col gap-2 leading-[1.45]">
+            <p className="text-[12px] font-bold tracking-[1.2px] text-gold-light uppercase">Still have a question?</p>
+            <h2 className="font-seasons text-[28px] leading-[1.12] text-white sm:text-[36px]">Our jewellery experts are a call away.</h2>
+            <p className="text-[15px] text-[#d9cce2]">Mon–Sun · 10:30 AM – 8:30 PM · 1800-258-2525</p>
+          </div>
+          <button
+            type="button"
+            onClick={() => openModal("contact")}
+            className="flex h-[52px] w-full shrink-0 cursor-pointer items-center justify-center rounded-[26px] bg-purple text-[15px] font-semibold text-white transition-colors hover:bg-purple-70 md:w-[220px]"
           >
-            Contact Us
-          </Link>
-        </div>
-      </section>
-
-      {/* Trust strip */}
-      <div className="py-[24px]">
-        <TrustStrip variant="light" />
+            Talk to an expert
+          </button>
+        </section>
       </div>
     </main>
   );

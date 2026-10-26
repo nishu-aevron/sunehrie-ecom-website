@@ -37,7 +37,7 @@ export function MarkYourMoment() {
   const side = "absolute top-[82px] h-[639px] w-[359px] overflow-hidden rounded-3xl blur-[5px] max-lg:hidden";
 
   return (
-    <Panel className="flex flex-col items-center gap-2.5 px-4 py-[50px] lg:px-[50px]">
+    <Panel className="flex flex-col items-center gap-2.5 px-4 py-8 sm:py-[50px] lg:px-[50px]">
       <SectionHeading
         align="center"
         title="#MarkYourMoment with Sunehriè"
@@ -91,18 +91,18 @@ export function MarkYourMoment() {
             </div>
             <Link
               href={current.href}
-              className="absolute right-[15px] bottom-[15px] left-[15px] flex h-[90px] items-center justify-between gap-[14.4px] rounded-3xl bg-white/80 p-[11.52px] backdrop-blur-[34px] transition-colors hover:bg-white/90"
+              className="absolute right-2 bottom-2 left-2 flex h-[70px] items-center justify-between gap-2 rounded-2xl bg-white/80 p-2 backdrop-blur-[34px] transition-colors hover:bg-white/90 sm:right-[15px] sm:bottom-[15px] sm:left-[15px] sm:h-[90px] sm:gap-[14.4px] sm:rounded-3xl sm:p-[11.52px]"
             >
-              <span className="flex items-center gap-[15px]">
-                <span className="relative size-[54px] shrink-0 overflow-hidden rounded-[21.6px]">
-                  <Image src="/img/home/reel-product.jpg" alt="" width={112} height={112} className="absolute top-[-29px] left-[-29px] size-[112px] max-w-none object-cover" />
+              <span className="flex items-center gap-2 sm:gap-[15px]">
+                <span className="relative size-[40px] shrink-0 overflow-hidden rounded-[16px] sm:size-[54px] sm:rounded-[21.6px]">
+                  <Image src="/img/home/reel-product.jpg" alt="" width={112} height={112} className="absolute top-[-20px] left-[-20px] size-[80px] max-w-none object-cover sm:top-[-29px] sm:left-[-29px] sm:size-[112px]" />
                 </span>
-                <span className="flex flex-col gap-2.5 tracking-[-0.8px]">
-                  <span className="text-[16px] leading-4 font-extrabold text-ink-90">{current.title}</span>
-                  <span className="text-[16px] leading-4 font-semibold text-[#604a6e]">Starts From {current.from}</span>
+                <span className="flex flex-col gap-1 tracking-[-0.8px] sm:gap-2.5">
+                  <span className="text-[13px] leading-4 font-extrabold text-ink-90 sm:text-[16px]">{current.title}</span>
+                  <span className="text-[12px] leading-4 font-semibold text-[#604a6e] sm:text-[16px]">Starts From {current.from}</span>
                 </span>
               </span>
-              <Icon src="/icons/home/reel-open.svg" size={30} />
+              <Icon src="/icons/home/reel-open.svg" size={30} className="max-sm:!h-[24px] max-sm:!w-[24px]" />
             </Link>
           </div>
         </div>
@@ -120,8 +120,8 @@ const eyebrow = "font-jost text-[11px] leading-[17.6px] font-semibold tracking-[
 export function Showroom() {
   const { openModal } = useShop();
   return (
-    <section className="page-x py-[45px]">
-      <div className="flex flex-col gap-12 py-8 lg:flex-row lg:items-center lg:justify-between lg:pl-[17px]">
+    <section className="page-x py-6 sm:py-[45px]">
+      <div className="flex flex-col gap-8 py-4 sm:gap-12 sm:py-8 lg:flex-row lg:items-center lg:justify-between lg:pl-[17px]">
         <div className="relative aspect-[677/381] w-full max-w-[677px] shrink-0 lg:h-[381px]">
           <div className="absolute top-0 left-0 h-full w-[82%] overflow-hidden rounded-[22px] shadow-[0_10px_30px_0_rgba(60,20,70,0.12)]">
             <Image src="/img/home/showroom-interior.png" alt="Sunehriè showroom interior" fill sizes="556px" className="object-cover" />
@@ -135,7 +135,7 @@ export function Showroom() {
             <span className="h-px w-[26px] bg-gold" />
             <span className={eyebrow}>Store Experience</span>
           </p>
-          <h2 className="font-seasons text-[32px] leading-[1.15] font-bold text-purple sm:text-[40px] sm:leading-[46px]">
+          <h2 className="font-seasons text-[26px] leading-[1.15] font-bold text-purple sm:text-[32px] lg:text-[40px] lg:leading-[46px]">
             Two Generations of Trust, One
             <br className="max-sm:hidden" /> Warm Welcome
           </h2>
@@ -192,15 +192,15 @@ export function Testimonials() {
   const rail = useRef<HTMLUListElement>(null);
   const scroll = (dir: number) => rail.current?.scrollBy({ left: dir * 404.67, behavior: "smooth" });
   return (
-    <Panel className="px-4 py-[70px]">
-      <div className="mx-auto flex max-w-[1240px] flex-col gap-[34px] sm:px-6">
+    <Panel className="px-4 py-8 sm:py-[70px]">
+      <div className="mx-auto flex max-w-[1240px] flex-col gap-6 sm:gap-[34px] sm:px-6">
         <div className="flex items-center justify-between pt-[7.7px]">
           <div className="flex flex-col gap-[7px]">
             <p className="flex items-center gap-2.5">
               <span className={eyebrow}>Customer Stories</span>
               <span className="h-px w-[26px] bg-gold" />
             </p>
-            <h2 className="font-seasons text-[32px] leading-[1.15] font-bold text-purple-deep sm:text-[42px] sm:leading-[48.3px]">Loved Across Gujarat</h2>
+            <h2 className="font-seasons text-[26px] leading-[1.15] font-bold text-purple-deep sm:text-[32px] lg:text-[42px] lg:leading-[48.3px]">Loved Across Gujarat</h2>
           </div>
           <div className="flex gap-[22px] max-sm:hidden">
             <ArrowButton direction="left" onClick={() => scroll(-1)} label="Previous stories" />
@@ -211,7 +211,7 @@ export function Testimonials() {
           {stories.map((s) => (
             <li
               key={s.name}
-              className="relative flex min-h-[220.81px] w-[382.67px] max-w-[85vw] shrink-0 snap-start flex-col gap-3 rounded-[14px] border border-purple-20 bg-white p-[29px]"
+              className="relative flex min-h-[180px] w-[300px] max-w-[85vw] shrink-0 snap-start flex-col gap-2 rounded-[14px] border border-purple-20 bg-white p-4 sm:min-h-[220.81px] sm:w-[382.67px] sm:gap-3 sm:p-[29px]"
             >
               <span aria-hidden className="absolute top-[19px] right-[25px] font-cormorant text-[64px] leading-[64px] font-medium text-[#fbf5e4]">
                 &quot;

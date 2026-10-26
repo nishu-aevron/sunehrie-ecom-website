@@ -23,7 +23,15 @@ export default function SearchModal() {
   }, [searchQuery]);
 
   return (
-    <Dialog label="Search" onClose={closeModal} className="w-[720px] max-w-full rounded-[20px] bg-white p-6 shadow-[0_24px_60px_0_rgba(0,0,0,0.35)]">
+    <Dialog label="Search" onClose={closeModal} className="w-[720px] max-w-full rounded-[20px] bg-white p-4 shadow-[0_24px_60px_0_rgba(0,0,0,0.35)] max-sm:h-full max-sm:w-full max-sm:rounded-none sm:p-6">
+      <div className="mb-3 flex items-center justify-between sm:hidden">
+        <span className="text-[16px] font-semibold text-ink">Search</span>
+        <button type="button" onClick={closeModal} className="cursor-pointer p-1" aria-label="Close search">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 6l12 12M18 6L6 18" />
+          </svg>
+        </button>
+      </div>
       <label className="flex items-center gap-3 rounded-[44px] border border-purple-50 bg-purple-10 px-4 py-3">
         <Icon src="/icons/nav/icon-search.svg" size={17} />
         <input
