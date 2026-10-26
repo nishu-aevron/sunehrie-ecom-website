@@ -54,7 +54,7 @@ export default function SiteHeader() {
               </span>
             </a>
             <div className="flex items-center gap-[15px] max-lg:hidden">
-              <Link href="/#returns" className={`${topLink} max-md:hidden`}>
+              <Link href="/refund-exchange" className={`${topLink} max-md:hidden`}>
                 <Icon src="/icons/nav/icon-return.svg" size={15} />
                 48-Hr Return Policy
               </Link>
@@ -62,7 +62,7 @@ export default function SiteHeader() {
                 <Icon src="/icons/nav/icon-phone.svg" size={15} />
                 Contact Us
               </button>
-              <Link href="/#blog" className={topLink}>
+              <Link href="/blog" className={topLink}>
                 <Icon src="/icons/nav/icon-blog.svg" size={15} />
                 Blog
               </Link>

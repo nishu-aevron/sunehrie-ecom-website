@@ -115,8 +115,8 @@ export function ShopByGender() {
 /* ------------------------------------------------------------------ Shop by Purity */
 const purityCards = [
   { label: "9KT", href: "/collections?purity=9KT", src: "/img/mega/9kt-gold.jpg", note: "Everyday fine gold — durable, wearable, honestly priced." },
-  { label: "14KT", href: "/collections?purity=14KT", src: "/img/mega/14kt-gold.png", note: "Modern classic — the sweet spot of colour and strength." },
-  { label: "18KT", href: "/collections?purity=18KT", src: "/img/mega/18kt-gold.png", note: "Heirloom gold — richer colour for pieces you pass down." },
+  { label: "14KT", href: "/collections?purity=14KT", src: "/img/mega/14kt-gold.png", note: "The modern sweet spot — richer tone, diamond-forward designs." },
+  { label: "18KT", href: "/collections?purity=18KT", src: "/img/mega/18kt-gold.png", note: "Heirloom gold for weddings and the pieces you pass down." },
 ];
 
 export function ShopByPurity() {
@@ -130,16 +130,28 @@ export function ShopByPurity() {
       <ul className="flex flex-wrap justify-center gap-3 sm:gap-[25px]">
         {purityCards.map((p) => (
           <li key={p.label} className="w-full sm:w-[430px] sm:max-w-full">
-            <Link href={p.href} className="group relative block aspect-[430/174.92] w-full overflow-hidden rounded-full bg-[#1c1c1c]">
-              <span className="absolute inset-0 transition-transform duration-500 group-hover:scale-[1.03]">
+            {/* Hover (Figma "Variant2"): the dark fade sweeps over the photo, the karat label slides left with the note under it, and an arrow appears. */}
+            <Link
+              href={p.href}
+              aria-label={`Shop ${p.label} gold`}
+              className="group relative block aspect-[430/174.92] w-full overflow-hidden rounded-full bg-[#1c1c1c] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple"
+            >
+              <span className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-[1.06] group-focus-visible:scale-[1.06]">
                 <CroppedImage src={p.src} alt="" frame={[430, 174.92]} box={[-4.78, -63.62, 307, 300]} sizes="460px" />
               </span>
               <span className="absolute top-0 h-full w-[18.4%]" style={{ left: "57.4%", background: "linear-gradient(90deg, rgba(28,28,28,0) 0%, #1c1c1c 59%)" }} />
-              <span className="absolute top-[35.4%] left-[72.3%] w-[86px] text-center font-seasons text-[50px] leading-[50px] font-bold tracking-[-0.8px] text-white max-sm:text-[36px]">
+              <span
+                className="absolute top-0 h-full w-[80%] opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100 group-focus-visible:opacity-100"
+                style={{ left: "-4.1%", background: "linear-gradient(90deg, rgba(28,28,28,0) 0%, #1c1c1c 38%)" }}
+              />
+              <span className="absolute top-1/2 left-[82.3%] -translate-x-1/2 -translate-y-1/2 font-seasons text-[50px] leading-none font-bold tracking-[-0.8px] whitespace-nowrap text-white transition-all duration-500 ease-out group-hover:top-[32.6%] group-hover:left-[41.4%] group-focus-visible:top-[32.6%] group-focus-visible:left-[41.4%] max-sm:text-[36px]">
                 {p.label}
               </span>
-              <span className="absolute bottom-[10px] left-[31.4%] w-[45%] text-[13.1px] leading-[19.6px] font-medium tracking-[0.24px] text-white opacity-0 transition-opacity group-hover:opacity-100 max-sm:hidden">
+              <span className="absolute top-[51%] left-[31.4%] w-[50%] translate-y-3 text-[13.1px] leading-[19.6px] font-medium tracking-[0.24px] text-white opacity-0 transition-all delay-100 duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100 max-sm:hidden">
                 {p.note}
+              </span>
+              <span className="absolute top-1/2 right-[8.4%] -translate-x-3 -translate-y-1/2 opacity-0 transition-all delay-100 duration-500 ease-out group-hover:translate-x-0 group-hover:opacity-100 group-focus-visible:translate-x-0 group-focus-visible:opacity-100">
+                <Icon src="/icons/home/arrow-right-white.svg" size={30} />
               </span>
             </Link>
           </li>

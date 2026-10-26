@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight, Star } from "lucide-react";
 import TrustStrip from "@/components/TrustStrip";
 
 export const metadata: Metadata = {
@@ -61,65 +63,82 @@ export default function SpecialOffersPage() {
   return (
     <main className="bg-white">
       {/* Hero */}
-      <section className="page-x relative pt-[30px] pb-[40px] sm:pb-[56px]">
-        <svg className="pointer-events-none absolute top-[-6px] right-0 h-[312px] w-[134px] text-purple-10" viewBox="0 0 134 312" fill="currentColor" aria-hidden>
-          <ellipse cx="134" cy="156" rx="134" ry="156" />
-        </svg>
-        <nav aria-label="Breadcrumb" className="relative flex items-center gap-1 text-ink-50 text-[12px] leading-5">
-          <Link href="/" className="hover:text-purple hover:underline">Home</Link>
-          <span className="font-inter text-[14px]">/</span>
-          <Link href="/special-offers" className="hover:text-purple hover:underline">Special Offers</Link>
-          <span className="font-inter text-[14px]">/</span>
-          <span className="text-ink">The Golden Sparrow Vault</span>
-        </nav>
+      <section className="relative overflow-hidden bg-purple-10">
+        {/* eslint-disable-next-line @next/next/no-img-element -- decorative brand flourish */}
+        <img src="/icons/brand-flourish.png" alt="" aria-hidden width={116} height={312} className="pointer-events-none absolute top-0 right-0 max-sm:hidden" />
+        <div className="relative mx-auto flex w-full max-w-[1440px] flex-col gap-7 px-4 pt-[30px] pb-12 sm:px-8 lg:px-[72px] lg:pb-14">
+          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-[12px] text-ink-70">
+            <Link href="/" className="hover:text-purple hover:underline">Home</Link>
+            <span>/</span>
+            <Link href="/special-offers" className="hover:text-purple hover:underline">Special Offers</Link>
+            <span>/</span>
+            <span>Golden Sparrow Vault</span>
+          </nav>
 
-        <div className="relative mt-[28px] flex flex-col gap-8 sm:mt-[44px] sm:gap-12 lg:flex-row lg:justify-between">
-          <div className="max-w-[620px]">
-            <div className="flex items-center gap-2">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/icons/home/trust-shield.svg" alt="" width={18} height={18} className="block size-[18px]" />
-              <span className="text-[13px] font-semibold text-purple">Special Offers</span>
-            </div>
-            <h1 className="mt-[24px] font-seasons text-[32px] leading-[1.1] font-bold tracking-[-1.6px] text-ink sm:text-[44px] lg:text-[52px]">
-              The Golden Sparrow Vault
-            </h1>
-            <p className="mt-[24px] text-[15px] leading-[24px] tracking-[0.24px] text-ink-70">
-              The Golden Sparrow is a proprietary loyalty framework designed by Sunehriè. Unlike traditional point-based systems, this program offers a milestone-based reward of up to ₹50,000 (&quot;Reward&quot;) upon the completion of a Proprietary Maturity Cycle (PMC).
-            </p>
-            <div className="mt-[16px] flex flex-wrap gap-3">
-              <span className="rounded-full bg-purple-10 px-[14px] py-[10px] text-[13px] font-medium text-ink">₹15,000+ purchase unlocks participation</span>
-              <span className="rounded-full bg-purple-10 px-[14px] py-[10px] text-[13px] font-medium text-ink">Up to ₹50,000 reward at 100% maturity</span>
-            </div>
-            <div className="mt-[28px] flex flex-wrap items-center gap-4">
-              <Link href="/collections" className="inline-flex items-center justify-center rounded-full bg-purple px-8 py-3.5 text-[15px] font-semibold text-white transition-colors hover:bg-purple-deep">
-                Shop & Qualify Now
-              </Link>
-              <Link href="#how-it-works" className="text-[11px] font-semibold tracking-[1px] uppercase text-purple hover:underline">
-                How the program works →
-              </Link>
-            </div>
-          </div>
-
-          <div className="w-full max-w-[628px] shrink-0">
-            <div className="h-[320px] rounded-3xl bg-gradient-to-br from-purple-10 to-purple-20 sm:h-[420px]" />
-            <div className="mt-[16px] grid grid-cols-3 gap-3">
-              {[
-                { label: "Program type", value: "Conditional deferred loyalty discount" },
-                { label: "Redemption", value: "Digital certificate / showroom voucher" },
-                { label: "Validity", value: "30 days from issuance" },
-              ].map((item) => (
-                <div key={item.label} className="rounded-xl border border-purple-20 bg-white p-4">
-                  <p className="text-[11px] font-semibold tracking-[1px] uppercase text-ink-50">{item.label}</p>
-                  <p className="mt-[6px] text-[13px] font-medium leading-[19px] text-ink">{item.value}</p>
+          <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-12">
+            <div className="flex w-full flex-col items-start gap-8 lg:w-[620px] lg:shrink-0">
+              <div className="flex items-center gap-2.5">
+                <Star size={18} strokeWidth={1.75} className="text-gold" aria-hidden />
+                <span className="text-[12px] font-bold text-gold uppercase">Special Offers</span>
+              </div>
+              <div className="flex flex-col gap-[15px]">
+                <h1 className="font-seasons text-[36px] leading-[1.12] text-ink sm:text-[44px] lg:text-[52px]">The Golden Sparrow Vault</h1>
+                <p className="text-[14px] leading-[1.7] text-ink-70">
+                  The Golden Sparrow is a proprietary loyalty framework designed by Sunehriè. Unlike traditional point-based systems, this program offers a milestone-based reward of up
+                  to ₹50,000 (“Reward”) upon the completion of a Proprietary Maturity Cycle (PMC).
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  {["₹15,000+ purchase unlocks participation", "Up to ₹50,000 reward at 100% maturity"].map((t) => (
+                    <span key={t} className="rounded-full border border-[#decfe4] bg-[#fcfafd] px-[14px] py-[10px] text-[13px] font-semibold text-ink">
+                      {t}
+                    </span>
+                  ))}
                 </div>
-              ))}
+              </div>
+              <div className="flex flex-wrap items-center gap-4">
+                <Link
+                  href="#how-it-works"
+                  className="inline-flex h-12 w-[220px] items-center justify-center rounded-[40px] bg-purple px-6 text-[16px] font-semibold text-white transition-colors hover:bg-purple-deep"
+                >
+                  View program details
+                </Link>
+                <Link href="#faqs" className="group inline-flex items-center gap-1.5 font-inter text-[16px] font-semibold text-purple">
+                  How maturity is calculated
+                  <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" aria-hidden />
+                </Link>
+              </div>
+            </div>
+
+            <div className="flex min-w-0 flex-1 flex-col gap-4">
+              <div className="overflow-hidden rounded-[24px]">
+                <Image
+                  src="/img/vault/golden-sparrow-vault.png"
+                  alt="A golden sparrow sculpture in the Sunehriè vault — up to ₹50,000 reward, conditional loyalty program"
+                  width={628}
+                  height={420}
+                  priority
+                  className="h-auto w-full"
+                />
+              </div>
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+                {[
+                  { label: "Program type", value: "Conditional deferred loyalty discount" },
+                  { label: "Redemption", value: "Digital certificate / showroom voucher" },
+                  { label: "Validity", value: "30 days from issuance" },
+                ].map((item) => (
+                  <div key={item.label} className="flex flex-col gap-1.5 rounded-[16px] border border-[#decfe4] bg-[#fcfafd] p-4">
+                    <p className="text-[11px] font-bold text-gold uppercase">{item.label}</p>
+                    <p className="text-[14px] font-semibold text-ink">{item.value}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* How the program works */}
-      <section id="how-it-works" className="bg-purple-10/50 py-[40px] sm:py-[56px]">
+      <section id="how-it-works" className="scroll-mt-6 bg-purple-10/50 py-[40px] sm:py-[56px]">
         <div className="page-x">
           <p className="text-[11px] font-semibold tracking-[2px] uppercase text-purple">How the program works</p>
           <h2 className="mt-[12px] font-seasons text-[24px] font-bold tracking-[-0.8px] text-ink sm:text-[32px] lg:text-[36px]">
@@ -232,7 +251,7 @@ export default function SpecialOffersPage() {
             </div>
           </div>
 
-          <h2 className="mt-[32px] font-seasons text-[26px] font-bold tracking-[-0.8px] text-ink sm:mt-[40px] sm:text-[32px]">FAQs</h2>
+          <h2 id="faqs" className="mt-[32px] scroll-mt-6 font-seasons text-[26px] font-bold tracking-[-0.8px] text-ink sm:mt-[40px] sm:text-[32px]">FAQs</h2>
           <div className="mt-[24px] flex flex-col">
             {programFaqs.map((faq) => (
               <div key={faq.q} className="flex flex-col gap-2 border-b border-purple-20 py-[20px] sm:flex-row sm:gap-[36px]">

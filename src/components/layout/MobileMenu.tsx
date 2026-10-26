@@ -205,6 +205,10 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
             { label: "Best Sellers", href: "/collections?sort=best-selling" },
             { label: "Shop by Occasion", href: "/collections?occasion=all" },
             { label: "Offers", href: "/special-offers" },
+            { label: "Customize Jewellery", href: "/customize" },
+            { label: "Compare Products", href: "/compare" },
+            { label: "Knowledge Hub", href: "/knowledge-hub" },
+            { label: "Blog", href: "/blog" },
           ].map((item) => (
             <div key={item.label} className="border-b border-purple-20">
               <Link href={item.href} onClick={onClose} className="flex items-center justify-between py-4 text-[15px] font-semibold text-ink">

@@ -44,9 +44,8 @@ export default function ContactPage() {
     <main className="bg-white">
       {/* Header */}
       <section className="page-x relative pt-[30px] pb-[40px]">
-        <svg className="pointer-events-none absolute top-[-6px] right-0 h-[312px] w-[134px] text-purple-10" viewBox="0 0 134 312" fill="currentColor" aria-hidden>
-          <ellipse cx="134" cy="156" rx="134" ry="156" />
-        </svg>
+        {/* eslint-disable-next-line @next/next/no-img-element -- decorative brand flourish */}
+        <img src="/icons/brand-flourish.png" alt="" aria-hidden width={116} height={312} className="pointer-events-none absolute top-0 right-0 max-sm:hidden" />
         <nav aria-label="Breadcrumb" className="relative flex items-center gap-1 text-ink-50 text-[12px] leading-5">
           <Link href="/" className="hover:text-purple hover:underline">Home</Link>
           <span className="font-inter text-[14px]">/</span>

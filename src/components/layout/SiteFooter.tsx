@@ -5,7 +5,16 @@ import Icon from "@/components/ui/Icon";
 const small = "text-[11.4px] leading-[16.8px] tracking-[0.24px] text-cream";
 const heading = "font-seasons text-[22px] leading-[22px] font-bold tracking-[-0.44px] text-cream";
 
-const knowUs = ["Sunehriè Promise", "Store Experience", "Jewelry Education", "48-Hour Return & Exchange", "Buyback Guarantee", "Size Guide"];
+const knowUs = [
+  { label: "Sunehriè Promise", href: "/about" },
+  { label: "Store Experience", href: "/contact" },
+  { label: "Jewelry Education", href: "/knowledge-hub" },
+  { label: "Customize Jewellery", href: "/customize" },
+  { label: "48-Hour Return & Exchange", href: "/refund-exchange" },
+  { label: "Buyback Guarantee", href: "/faq" },
+  { label: "Size Guide", href: "/size-guide" },
+  { label: "Blog", href: "/blog" },
+];
 const shop = [
   { label: "9KT Gold", href: "/collections?purity=9KT" },
   { label: "14KT Gold", href: "/collections?purity=14KT" },
@@ -21,7 +30,12 @@ const socials = [
   { label: "Instagram", icon: "social-instagram", href: "https://instagram.com" },
 ];
 const payments = ["pay-visa", "pay-mastercard", "pay-amex", "pay-paypal"];
-const policies = ["Return Policy", "Privacy Policy", "Terms of Service", "Shipping Policy"];
+const policies = [
+  { label: "Return Policy", href: "/refund-exchange" },
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Terms of Service", href: "/terms" },
+  { label: "Shipping Policy", href: "/faq" },
+];
 
 export default function SiteFooter() {
   return (
@@ -61,9 +75,9 @@ export default function SiteFooter() {
               <h4 className={heading}>Know Us</h4>
               <ul className="mt-[28.79px] flex flex-col gap-2">
                 {knowUs.map((l) => (
-                  <li key={l}>
-                    <Link href="/#" className={`${small} transition-colors hover:text-gold`}>
-                      {l}
+                  <li key={l.label}>
+                    <Link href={l.href} className={`${small} transition-colors hover:text-gold`}>
+                      {l.label}
                     </Link>
                   </li>
                 ))}
@@ -138,9 +152,9 @@ export default function SiteFooter() {
             <p className={small}>© 2026 Sunehriè by Shreenathji Jewellers. All rights reserved.</p>
             <ul className="flex flex-wrap gap-[15px] max-sm:justify-center">
               {policies.map((p) => (
-                <li key={p}>
-                  <Link href="/#" className={`${small} whitespace-nowrap transition-colors hover:text-gold`}>
-                    {p}
+                <li key={p.label}>
+                  <Link href={p.href} className={`${small} whitespace-nowrap transition-colors hover:text-gold`}>
+                    {p.label}
                   </Link>
                 </li>
               ))}

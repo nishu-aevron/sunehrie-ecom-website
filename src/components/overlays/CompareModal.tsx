@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 import Dialog from "./Dialog";
 import { MAX_COMPARE, useShop } from "@/context/ShopContext";
@@ -14,7 +15,8 @@ const tabs: { id: Tab; label: string }[] = [
 ];
 
 export default function CompareModal() {
-  const { closeModal, compare, toggleCompare, isInCompare, wishlist, recentlyViewed, showToast } = useShop();
+  const { closeModal, compare, toggleCompare, isInCompare, wishlist, recentlyViewed } = useShop();
+  const router = useRouter();
   const [tab, setTab] = useState<Tab>(recentlyViewed.length ? "recent" : "all");
   const [query, setQuery] = useState("");
 
@@ -132,11 +134,11 @@ export default function CompareModal() {
           type="button"
           onClick={() => {
             closeModal();
-            if (compare.length > 1) showToast(`Comparing ${compare.length} pieces`);
+            if (compare.length > 0) router.push("/compare");
           }}
           className="cursor-pointer rounded-[50px] bg-purple px-8 py-[13px] text-[14px] leading-[19.12px] font-semibold text-white transition-colors hover:bg-purple-deep"
         >
-          Done
+          {compare.length > 0 ? "Compare now" : "Done"}
         </button>
       </div>
     </Dialog>

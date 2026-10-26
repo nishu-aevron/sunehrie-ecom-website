@@ -1,222 +1,198 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight, BadgeCheck, Gem, Receipt, Repeat, ShieldCheck, Wallet } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: "Two generations of trust — real gold, natural diamonds, and a legacy of love from Godhra & Lunawada.",
+  description: "Two generations. One golden promise. Sunehriè by Shreenathji Jewellers — real gold, natural diamonds, rooted in Godhra & Lunawada.",
 };
 
 const commitments = [
-  { icon: "/icons/home/trust-shield.svg", title: "BIS Hallmark Assured", desc: "Every piece carries a unique HUID, verified by the Bureau of Indian Standards for purity and authenticity." },
-  { icon: "/icons/home/trust-diamond.svg", title: "Natural Diamonds Only", desc: "We use only IGI-certified natural diamonds — never lab-grown, never simulated, never compromised." },
-  { icon: "/icons/home/trust-rupee.svg", title: "Transparent Pricing", desc: "Full price breakup on every product — gold weight, diamond value, making charges and GST, all visible." },
+  { Icon: BadgeCheck, title: "Gold you can know", desc: "Choose 9KT, 14KT or 18KT gold, with the assurance of BIS hallmarking. Precious, personal and clearly explained." },
+  { Icon: Gem, title: "Naturally brilliant", desc: "Natural, IGI-certified diamonds. A little clarity about what makes every precious choice your own." },
+  { Icon: Receipt, title: "Nothing hidden", desc: "Transparent pricing and a full price breakup, so you know what goes into the piece you choose." },
 ];
 
 const values = [
-  { title: "Trust", desc: "Every piece is hallmarked, every diamond certified. We believe trust is built through transparency, not promises." },
-  { title: "Craft", desc: "Two generations of jewellery-making inform every curve and setting. We honour traditional techniques while embracing modern design." },
-  { title: "Accessibility", desc: "Fine jewellery should not require a fortune. Starting at 9KT, we make real gold and natural diamonds attainable for everyone." },
+  { title: "Equality", desc: "Every woman deserves access to jewellery that is beautiful, certified and honestly priced — regardless of occasion or budget." },
+  { title: "Security", desc: "From hallmarked metals to lifetime product support, we design our relationship with you to last far beyond the moment of purchase." },
+  { title: "Transparency", desc: "Detailed product pricing, certified stones and clear metal grading — so the choice you make is always an informed one." },
 ];
 
-const founders = [
-  { initial: "A", name: "Anil Shah", role: "Founder & Managing Director" },
-  { initial: "S", name: "Sunita Anil Shah", role: "Co-Founder & Creative Head" },
-  { initial: "N", name: "Nishu Shah", role: "Director of Operations" },
-  { initial: "I", name: "Ilesh Shah", role: "Head of Retail Strategy" },
+const leaders = [
+  { name: "Yash Sheth", role: "Chief Executive Officer" },
+  { name: "Shivam Vipul Purohit", role: "Chief Marketing Officer" },
+  { name: "Prem Sheth", role: "Chief Technology Officer" },
+  { name: "Jigar Sheth", role: "Chief Financial Officer" },
 ];
 
-const team = [
-  { initial: "M", name: "Meera Jha", role: "Lead Designer" },
-  { initial: "RK", name: "Rajesh K.", role: "Lead Designer" },
-  { initial: "PG", name: "Priya Gupta", role: "Lead Designer" },
-];
+const team = ["Het Sheth", "Raj Sheth", "Dheer Parikh"];
 
 const stores = [
-  {
-    name: "Sunehriè — Godhra Flagship",
-    address: "2nd Floor, Besides Shreenathji Jewellers Godhrawala, Adumbar Kuva, Soniwad, Godhra, Gujarat 389001",
-    hours: "Mon – Sat: 10:30 AM – 8:30 PM",
-  },
-  {
-    name: "Sunehriè — Lunawada Showroom",
-    address: "Opp Shreenathji Jewellers Godhrawala Lunawada, E-Block, Nandan Arched, Modasa Road, Lunawada, Mahisagar 389230",
-    hours: "Mon – Sat: 10:30 AM – 8:30 PM",
-  },
+  { city: "Godhra", address: "Main Bazaar, Godhra, Gujarat 388001", hours: "Mon–Sun 10:30 AM–8:30 PM" },
+  { city: "Lunawada", address: "Station Road, Lunawada, Gujarat 389230", hours: "Mon–Sun 10:30 AM–8:30 PM" },
 ];
+
+const x = "mx-auto w-full max-w-[1440px] px-4 sm:px-8 lg:px-[72px]";
+const overline = "text-[11px] font-bold tracking-[0.5px] text-gold uppercase";
+
+function TextLink({ href, children, gold }: { href: string; children: React.ReactNode; gold?: boolean }) {
+  return (
+    <Link href={href} className={`group inline-flex items-center gap-2.5 text-[13px] font-semibold ${gold ? "text-gold" : "text-purple"}`}>
+      {children}
+      <ArrowRight size={17} strokeWidth={1.75} className="transition-transform group-hover:translate-x-1" />
+    </Link>
+  );
+}
 
 export default function AboutPage() {
   return (
     <main className="bg-white">
       {/* Heritage introduction */}
-      <section className="page-x pt-[30px] pb-10 sm:pb-[72px]">
-        <nav aria-label="Breadcrumb" className="flex items-center gap-1 text-ink-50 text-[12px] leading-5">
-          <Link href="/" className="hover:text-purple hover:underline">Home</Link>
-          <span className="font-inter text-[14px]">/</span>
-          <span className="text-ink">About Us</span>
-        </nav>
-
-        <div className="mt-8 flex flex-col gap-8 sm:mt-[46px] sm:gap-12 lg:flex-row lg:items-center lg:justify-between">
-          <div className="max-w-[644px]">
-            <p className="text-[11px] font-semibold tracking-[2px] uppercase text-purple">Two Generations of Trust</p>
-            <h1 className="mt-[26px] font-seasons text-[32px] leading-[1.1] font-bold tracking-[-1.6px] text-ink sm:text-[44px] lg:text-[56px]">
-              More Than Jewellery,{" "}
-              <span className="text-purple">a Legacy of Love</span>
-            </h1>
-            <p className="mt-[26px] max-w-[644px] text-[15px] leading-[27px] tracking-[0.24px] text-ink-70">
-              From a single store in Godhra to a trusted name across Gujarat, Sunehriè carries forward a family tradition of crafting real gold jewellery with natural diamonds — making fine jewellery accessible, honest, and personal.
-            </p>
-            <Link href="#our-story" className="mt-[26px] inline-flex items-center gap-1.5 text-[15px] font-semibold text-purple hover:underline">
-              Explore our story <span aria-hidden>→</span>
-            </Link>
-          </div>
-
-          <div className="relative h-[260px] w-full max-w-[580px] overflow-hidden rounded-2xl bg-purple-10 sm:h-[380px] sm:rounded-3xl lg:h-[490px]">
-            <Image src="/img/home/hero-portrait.png" alt="Sunehriè brand portrait" fill sizes="580px" className="object-cover" />
+      <section className="bg-purple-10">
+        <div className={`${x} flex flex-col gap-[30px] pt-[30px] pb-12 lg:pb-16`}>
+          <nav aria-label="Breadcrumb" className="text-[12px] text-ink-70">
+            <Link href="/" className="hover:underline">Home</Link>
+            <span className="mx-2">/</span>
+            <span>About Us</span>
+          </nav>
+          <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-[72px]">
+            <div className="flex flex-1 flex-col items-start gap-[26px]">
+              <p className={overline}>Sunehriè by Shreenathji Jewellers</p>
+              <h1 className="font-seasons text-[38px] leading-[1.12] font-normal text-ink sm:text-[50px] lg:text-[62px]">Two generations. One golden promise.</h1>
+              <p className="text-[15px] leading-[1.7] text-ink-70 sm:text-[16px]">
+                From Godhra &amp; Lunawada to the moments you make your own. Jewellery rooted in trust, made for the modern wearer.
+              </p>
+              <TextLink href="#our-story">Discover our story</TextLink>
+            </div>
+            <div className="relative h-[360px] w-full overflow-hidden rounded-t-[140px] rounded-b-[24px] sm:h-[490px] lg:w-[580px] lg:shrink-0 lg:rounded-t-[190px]">
+              <Image src="/img/home/hero-portrait.png" alt="Sunehriè brand portrait" fill priority sizes="(min-width: 1024px) 580px, 100vw" className="object-cover" />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Our Story */}
-      <section id="our-story" className="bg-purple-10/50 py-10 sm:py-[56px] lg:py-[72px]">
-        <div className="page-x flex flex-col gap-8 sm:gap-12 lg:flex-row lg:items-center">
-          <div className="relative h-[240px] w-full shrink-0 overflow-hidden rounded-2xl bg-purple-20 sm:h-[350px] sm:rounded-3xl lg:h-[450px] lg:w-[500px]">
-            <Image src="/img/home/showroom-interior.png" alt="Jewellery craftsmanship" fill sizes="500px" className="object-cover" />
-          </div>
-          <div className="max-w-[620px]">
-            <p className="text-[11px] font-semibold tracking-[2px] uppercase text-purple">Our Story</p>
-            <h2 className="mt-[24px] font-seasons text-[26px] leading-[1.15] font-bold tracking-[-0.8px] text-ink sm:text-[36px] lg:text-[44px]">
-              A Family Tradition, Carried Forward
-            </h2>
-            <p className="mt-[24px] text-[15px] leading-[24px] tracking-[0.24px] text-ink-70">
-              Sunehriè was born from a simple belief — that real gold and natural diamonds should be within everyone&apos;s reach. Our founders, with over two decades in the jewellery trade, saw an industry where trust was rare and transparency rarer.
-            </p>
-            <p className="mt-[24px] text-[15px] leading-[24px] tracking-[0.24px] text-ink-70">
-              Starting with a flagship store in Godhra and expanding to Lunawada, they built Sunehriè on three promises: every piece hallmarked, every diamond certified, and every price fully transparent. Today, that same commitment drives everything from our 9KT daily wear to our 18KT bridal collections.
-            </p>
-            <p className="mt-[24px] font-seasons text-[18px] font-bold tracking-[-0.4px] text-purple sm:text-[22px]">
-              — The Shah Family, Sunehriè
-            </p>
-          </div>
+      {/* Our story */}
+      <section id="our-story" className="mx-auto flex w-full max-w-[1440px] scroll-mt-24 flex-col items-center gap-10 px-4 py-12 sm:px-8 lg:flex-row lg:gap-[100px] lg:px-[110px] lg:py-[72px]">
+        <div className="relative h-[320px] w-full overflow-hidden rounded-[24px] sm:h-[450px] lg:w-[500px] lg:shrink-0">
+          <Image src="/img/home/showroom-interior.png" alt="Jewellery craftsmanship" fill sizes="(min-width: 1024px) 500px, 100vw" className="object-cover" />
         </div>
-      </section>
-
-      {/* Brand Commitments */}
-      <section className="py-10 sm:py-[48px] lg:py-[64px]">
-        <div className="page-x">
-          <p className="text-[11px] font-semibold tracking-[2px] uppercase text-purple">What We Stand For</p>
-          <h2 className="mt-[24px] font-seasons text-[26px] leading-[1.15] font-bold tracking-[-0.8px] text-ink sm:text-[36px] lg:text-[40px]">
-            Commitments That Define Every Piece
-          </h2>
-          <div className="mt-6 grid gap-5 sm:mt-[36px] sm:grid-cols-3 sm:gap-8">
-            {commitments.map((c) => (
-              <div key={c.title} className="flex flex-col gap-[18px]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={c.icon} alt="" width={32} height={32} className="block size-8" />
-                <h3 className="font-seasons text-[18px] font-bold tracking-[-0.4px] text-ink sm:text-[22px]">{c.title}</h3>
-                <p className="text-[14px] leading-[22px] tracking-[0.24px] text-ink-70">{c.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Vision & Values */}
-      <section className="bg-purple-10/50 py-10 sm:py-[56px] lg:py-[72px]">
-        <div className="page-x">
-          <p className="text-[11px] font-semibold tracking-[2px] uppercase text-purple">Vision</p>
-          <h2 className="mt-[16px] font-seasons text-[26px] leading-[1.15] font-bold tracking-[-0.8px] text-ink sm:text-[36px] lg:text-[40px]">
-            Making Fine Jewellery Accessible to Every Indian Family
-          </h2>
-          <p className="mt-[16px] max-w-[960px] text-[15px] leading-[26px] tracking-[0.24px] text-ink-70">
-            We envision a future where choosing real gold and natural diamonds is no longer a privilege. Through honest pricing, starting at 9KT, and certified craftsmanship, Sunehriè is rewriting the rules of fine jewellery — one family at a time.
+        <div className="flex flex-1 flex-col items-start gap-6">
+          <p className={overline}>Our roots. Your stories.</p>
+          <h2 className="font-seasons text-[30px] leading-[1.12] text-ink sm:text-[42px]">Some things are passed down. Trust is one of them.</h2>
+          <p className="text-[14px] leading-[1.7] text-ink-70">
+            At Shreenathji Jewellers, our story is a family story — two generations of trust, with roots in Godhra and Lunawada. Sunehriè carries that relationship into a new
+            expression of jewellery.
           </p>
-          <div className="mt-6 grid gap-4 sm:mt-[48px] sm:grid-cols-3 sm:gap-8">
-            {values.map((v) => (
-              <div key={v.title} className="rounded-2xl border border-purple-20 bg-white p-6 sm:p-8">
-                <h3 className="font-seasons text-[18px] font-bold tracking-[-0.4px] text-ink sm:text-[22px]">{v.title}</h3>
-                <p className="mt-[16px] text-[14px] leading-[22px] tracking-[0.24px] text-ink-70">{v.desc}</p>
-              </div>
-            ))}
-          </div>
+          <p className="text-[14px] leading-[1.7] text-ink-70">
+            We believe the pieces you wear should feel as honest as the moments they mark. That means real gold, natural diamonds and pricing you can understand, whether you visit
+            us in store or discover us online.
+          </p>
+          <p className="font-seasons text-[21px] text-purple sm:text-[25px]">More than jewellery. A little part of you.</p>
+        </div>
+      </section>
+
+      {/* Brand commitments */}
+      <section className="mx-auto flex w-[calc(100%-16px)] max-w-[1415px] flex-col gap-9 rounded-[24px] bg-[#2b0d3d] px-5 py-10 sm:w-[calc(100%-27px)] sm:rounded-[38px] sm:px-10 lg:px-[72px] lg:py-16">
+        <p className={overline}>The Sunehriè promise</p>
+        <h2 className="font-seasons text-[30px] leading-[1.12] text-white sm:text-[44px]">Real Gold. Natural Diamonds. Zero Ambiguity.</h2>
+        <div className="grid gap-8 md:grid-cols-3 md:gap-12">
+          {commitments.map(({ Icon, title, desc }) => (
+            <div key={title} className="flex flex-col items-start gap-[18px]">
+              <Icon size={32} strokeWidth={1.5} className="text-gold" aria-hidden />
+              <h3 className="font-seasons text-[24px] leading-[1.12] text-white sm:text-[28px]">{title}</h3>
+              <p className="text-[13px] leading-[1.7] text-cream">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Vision and values */}
+      <section className={`${x} flex flex-col gap-12 py-12 lg:py-[72px]`}>
+        <div className="flex flex-col gap-4">
+          <p className={overline}>Our vision</p>
+          <h2 className="font-cormorant text-[32px] leading-[1.12] font-medium text-ink sm:text-[42px]">Jewellery as legacy. Expression. Milestone.</h2>
+          <p className="text-[15px] leading-[1.7] text-ink-70">
+            At Sunehriè, we believe jewellery is more than ornament. It is a legacy of craftsmanship, an expression of individuality and a celebration of the milestones that shape
+            a life. We exist to bridge timeless heritage and modern sophistication — for the contemporary woman who knows her own worth.
+          </p>
+        </div>
+        <div className="grid gap-6 md:grid-cols-3 md:gap-8">
+          {values.map((v) => (
+            <div key={v.title} className="flex flex-col gap-4 border-l-[3px] border-gold p-6 sm:p-8">
+              <h3 className="font-cormorant text-[28px] leading-[1.12] font-medium text-ink">{v.title}</h3>
+              <p className="text-[13px] leading-[1.7] text-ink-70">{v.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* Sunehriè Vault */}
-      <section className="py-10 sm:py-[56px] lg:py-[72px]">
-        <div className="page-x flex flex-col gap-8 sm:gap-12 lg:flex-row lg:justify-between">
-          <div className="max-w-[796px]">
-            <p className="text-[11px] font-semibold tracking-[2px] uppercase text-purple">The Golden Sparrow</p>
-            <h2 className="mt-[28px] font-seasons text-[26px] leading-[1.15] font-bold tracking-[-0.8px] text-ink sm:text-[36px] lg:text-[40px]">
-              Introducing the Sunehriè Vault
-            </h2>
-            <p className="mt-[28px] max-w-[796px] text-[15px] leading-[24px] tracking-[0.24px] text-ink-70">
-              The Golden Sparrow Vault is our proprietary loyalty framework — a milestone-based reward of up to ₹50,000 upon the completion of a Proprietary Maturity Cycle. Unlike traditional point-based systems, this program rewards your journey with Sunehriè.
+      <section className="bg-ink">
+        <div className={`${x} flex flex-col gap-10 py-12 lg:flex-row lg:items-center lg:gap-20 lg:py-[72px]`}>
+          <div className="flex flex-1 flex-col items-start gap-7">
+            <p className={overline}>Sunehriè Vault · Chidiya Vault</p>
+            <h2 className="font-cormorant text-[32px] leading-[1.12] font-medium text-white sm:text-[44px]">Empowering every woman through jewellery.</h2>
+            <p className="text-[14px] leading-[1.7] text-cream">
+              The Sunehriè Vault is our belief made tangible. Fine jewellery has always held value — material, emotional and cultural. The Vault blends the beauty of jewellery with
+              a systematic, intentional approach to asset building, supporting long-term independence, financial confidence and a sense of ownership that is entirely your own.
             </p>
-            <p className="mt-[28px] max-w-[796px] text-[15px] leading-[24px] tracking-[0.24px] text-ink-70">
-              A single jewellery purchase of ₹15,000 or above unlocks participation. Track your progress live and redeem at maturity — it&apos;s jewellery that gives back.
+            <p className="text-[14px] leading-[1.7] text-cream">
+              This is not a scheme or a promise of returns. It is an invitation to think of your jewellery as something that grows with you — in meaning, and in value.
             </p>
-            <Link href="/special-offers" className="mt-[28px] inline-flex items-center gap-1.5 text-[15px] font-semibold text-purple hover:underline">
-              Learn about the Vault <span aria-hidden>→</span>
-            </Link>
+            <TextLink href="/special-offers" gold>
+              Learn about the Vault
+            </TextLink>
           </div>
-
-          <div className="w-full max-w-[420px] shrink-0">
-            <div className="rounded-2xl border border-purple-20 bg-white p-8">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/icons/home/trust-shield.svg" alt="" width={36} height={36} className="block size-9" />
-              <h3 className="mt-[20px] font-seasons text-[18px] font-bold tracking-[-0.4px] text-ink sm:text-[22px]">The Golden Sparrow Vault</h3>
-              <p className="mt-[16px] text-[14px] leading-[22px] tracking-[0.24px] text-ink-70">
-                A conditional deferred loyalty program that rewards your purchase journey with up to ₹50,000 on maturity.
+          <div className="flex w-full flex-col gap-5 lg:w-[420px] lg:shrink-0">
+            <div className="flex flex-col items-start gap-4 rounded-[20px] bg-[#3d1a50] p-8">
+              <Wallet size={36} strokeWidth={1.5} className="text-gold" aria-hidden />
+              <h3 className="font-cormorant text-[26px] leading-[1.12] font-medium text-white">Your jewellery, your asset</h3>
+              <p className="text-[13px] leading-[1.7] text-cream">
+                Build a collection with intention. Each certified piece is yours to wear, yours to cherish and yours to leverage — on your terms.
               </p>
             </div>
-            <div className="mt-[20px] grid grid-cols-2 gap-4">
-              <div className="rounded-xl border border-purple-20 bg-white p-5">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/icons/plp/shield-gold.svg" alt="" width={22} height={22} className="block size-[22px]" />
-                <p className="mt-[10px] text-[13px] font-medium text-ink">Certified & insured</p>
-              </div>
-              <div className="rounded-xl border border-purple-20 bg-white p-5">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/icons/home/trust-history.svg" alt="" width={22} height={22} className="block size-[22px]" />
-                <p className="mt-[10px] text-[13px] font-medium text-ink">Track live progress</p>
-              </div>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { Icon: ShieldCheck, label: "100% certified jewellery" },
+                { Icon: Repeat, label: "Lifetime product support" },
+              ].map(({ Icon, label }) => (
+                <div key={label} className="flex flex-col items-start gap-2.5 rounded-[16px] bg-[#3d1a50] p-5">
+                  <Icon size={22} strokeWidth={1.5} className="text-gold" aria-hidden />
+                  <p className="text-[12px] leading-[1.6] text-cream">{label}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* Leadership */}
-      <section className="bg-purple-10/50 py-10 sm:py-[56px] lg:py-[72px]">
-        <div className="page-x">
-          <p className="text-[11px] font-semibold tracking-[2px] uppercase text-purple">Meet the Team</p>
-          <h2 className="mt-[16px] font-seasons text-[26px] leading-[1.15] font-bold tracking-[-0.8px] text-ink sm:text-[36px] lg:text-[40px]">
-            The People Behind Sunehriè
-          </h2>
-          <p className="mt-[16px] text-[15px] leading-[24px] tracking-[0.24px] text-ink-70">
-            A family-led team with two generations of jewellery expertise, united by a shared vision.
+      <section className={`${x} flex flex-col gap-12 py-12 lg:py-[72px]`}>
+        <div className="flex flex-col gap-4">
+          <p className={overline}>The people behind Sunehriè</p>
+          <h2 className="font-cormorant text-[32px] leading-[1.12] font-medium text-ink sm:text-[42px]">Heritage-driven wisdom. Forward-thinking vision.</h2>
+          <p className="text-[14px] leading-[1.7] text-ink-70">
+            Our leadership team combines generations of jewellery expertise with modern business thinking — together building a brand that truly serves the contemporary woman.
           </p>
-
-          <div className="mt-6 grid grid-cols-2 gap-4 sm:mt-[48px] sm:gap-6 lg:grid-cols-4">
-            {founders.map((l) => (
-              <div key={l.name} className="rounded-2xl border border-purple-20 bg-white p-5 sm:p-7">
-                <div className="flex size-[52px] items-center justify-center rounded-full bg-purple-10">
-                  <span className="font-seasons text-[20px] font-bold text-purple">{l.initial}</span>
-                </div>
-                <p className="mt-[12px] text-[16px] font-semibold text-ink">{l.name}</p>
-                <p className="mt-[8px] text-[11px] font-semibold tracking-[1px] uppercase text-ink-50">{l.role}</p>
+        </div>
+        <div className="flex flex-col gap-6">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
+            {leaders.map((l) => (
+              <div key={l.name} className="flex flex-col items-start gap-3 rounded-[20px] bg-purple-10 p-7">
+                <span className="flex size-[52px] items-center justify-center rounded-full bg-ink font-cormorant text-[24px] text-gold">{l.name[0]}</span>
+                <p className="font-cormorant text-[22px] leading-[1.2] font-medium text-ink">{l.name}</p>
+                <p className="text-[11px] font-semibold text-purple uppercase">{l.role}</p>
               </div>
             ))}
           </div>
-
-          <div className="mt-4 grid grid-cols-2 gap-4 sm:mt-[24px] sm:gap-6 lg:grid-cols-4">
-            {team.map((l) => (
-              <div key={l.name} className="rounded-2xl border border-purple-20 bg-white p-5 sm:p-7">
-                <div className="flex size-[52px] items-center justify-center rounded-full bg-purple-10">
-                  <span className="font-seasons text-[20px] font-bold text-purple">{l.initial}</span>
-                </div>
-                <p className="mt-[12px] text-[16px] font-semibold text-ink">{l.name}</p>
-                <p className="mt-[8px] text-[11px] font-semibold tracking-[1px] uppercase text-ink-50">{l.role}</p>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
+            {team.map((name) => (
+              <div key={name} className="flex flex-col items-start gap-3 rounded-[20px] bg-blush-light p-7">
+                <span className="flex size-[52px] items-center justify-center rounded-full bg-purple-10 font-cormorant text-[24px] text-purple">{name[0]}</span>
+                <p className="font-cormorant text-[22px] leading-[1.2] font-medium text-ink">{name}</p>
+                <p className="text-[11px] font-semibold text-ink-70 uppercase">Leadership Team</p>
               </div>
             ))}
           </div>
@@ -224,47 +200,35 @@ export default function AboutPage() {
       </section>
 
       {/* Visit our stores */}
-      <section className="py-10 sm:py-[48px] lg:py-[64px]">
-        <div className="page-x">
-          <div className="flex items-center justify-between">
-            <h2 className="font-seasons text-[26px] leading-[1.15] font-bold tracking-[-0.8px] text-ink sm:text-[36px] lg:text-[40px]">
-              Visit Our Stores
-            </h2>
-            <Link href="/contact" className="hidden items-center gap-1.5 text-[15px] font-semibold text-purple hover:underline sm:inline-flex">
-              All locations <span aria-hidden>→</span>
-            </Link>
-          </div>
-          <div className="mt-6 grid gap-4 sm:mt-[32px] sm:grid-cols-2 sm:gap-8">
-            {stores.map((s) => (
-              <div key={s.name} className="rounded-2xl border border-purple-20 bg-white p-6 sm:p-8">
-                <h3 className="font-seasons text-[20px] font-bold tracking-[-0.4px] text-ink sm:text-[24px]">{s.name}</h3>
-                <p className="mt-[16px] text-[15px] leading-[24px] tracking-[0.24px] text-ink-70">{s.address}</p>
-                <p className="mt-[16px] text-[14px] leading-[20px] text-ink-50">{s.hours}</p>
-                <Link href="#" className="mt-[16px] inline-flex items-center gap-1.5 text-[15px] font-semibold text-purple hover:underline">
-                  Get directions <span aria-hidden>→</span>
-                </Link>
-              </div>
-            ))}
-          </div>
+      <section className={`${x} flex flex-col gap-8 pt-4 pb-12 lg:pb-16`}>
+        <div className="flex flex-wrap items-center justify-between gap-4">
+          <h2 className="font-seasons text-[30px] leading-[1.12] text-ink sm:text-[40px]">Our roots are close to home.</h2>
+          <TextLink href="/contact">Plan your visit</TextLink>
+        </div>
+        <div className="grid gap-6 md:grid-cols-2 md:gap-8">
+          {stores.map((s) => (
+            <div key={s.city} className="flex flex-col items-start gap-4 rounded-[24px] bg-purple-10 p-6 sm:p-8">
+              <h3 className="font-seasons text-[28px] leading-[1.12] text-ink sm:text-[34px]">{s.city}</h3>
+              <p className="text-[14px] leading-[1.7] text-ink-70">{s.address}</p>
+              <p className="text-[12px] leading-[1.7] text-ink-70">{s.hours}</p>
+              <TextLink href="/contact">Get in touch</TextLink>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* Personal assistance */}
-      <section className="mx-auto w-[calc(100%-27px)] max-w-[1415px] rounded-[20px] bg-purple-10 px-4 py-5 mb-8 sm:rounded-[38px] sm:px-[25px] sm:py-[25px] sm:mb-[48px]">
-        <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
-          <div>
-            <h2 className="font-seasons text-[28px] font-bold tracking-[-0.4px] text-ink">Need Personal Assistance?</h2>
-            <p className="mt-[12px] text-[15px] leading-[24px] tracking-[0.24px] text-ink-70">
-              Our jewellery consultants are here to help — whether you need guidance, custom orders, or sizing advice.
-            </p>
-          </div>
-          <Link
-            href="/contact"
-            className="inline-flex shrink-0 items-center justify-center rounded-full bg-purple px-8 py-3.5 text-[15px] font-semibold text-white transition-colors hover:bg-purple-deep"
-          >
-            Book a Consultation
-          </Link>
+      <section className="mx-auto mb-10 flex w-[calc(100%-16px)] max-w-[1415px] flex-col items-start justify-between gap-6 rounded-[24px] bg-blush-light p-6 sm:w-[calc(100%-27px)] sm:rounded-[38px] sm:p-[25px] md:flex-row md:items-center lg:mb-12">
+        <div className="flex flex-col gap-3">
+          <h2 className="font-seasons text-[26px] leading-[1.12] text-ink sm:text-[32px]">Your story deserves a little gold.</h2>
+          <p className="text-[14px] leading-[1.7] text-ink-70">Discover pieces for the everyday, the once-in-a-lifetime and everything in between.</p>
         </div>
+        <Link
+          href="/collections"
+          className="inline-flex h-12 w-full shrink-0 items-center justify-center rounded-[40px] bg-purple px-6 text-[16px] font-semibold text-white transition-colors hover:bg-purple-deep md:w-[220px]"
+        >
+          Explore the collection
+        </Link>
       </section>
     </main>
   );
